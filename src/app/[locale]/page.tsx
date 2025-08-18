@@ -106,6 +106,15 @@ const ContactSection = async () => {
           </Text>
         </Flex>
       </Flex>
+
+      <Box mt="2rem">
+        <iframe
+          src="https://yandex.ru/map-widget/v1/?um=constructor%3A3a20f7a9ad3e2d07e0d01042d9d85bdb8d22a4b5a27d6287f6f5e7f8f04a37b8&amp;source=constructor"
+          width="100%"
+          height="400"
+        ></iframe>
+      </Box>
+
     </Container>
   );
 };

@@ -145,7 +145,7 @@ export const ShowServices = () => {
                 <ServiceTitle
                   mt={{ base: "0", md: "250px" }}
                   pos={"relative"}
-                  fz={{ base: "2.0  rem", md: "4.375rem" }}
+                  fz={{ base: "2.0rem",  md: "4.375rem" }}
                   style={{ zIndex: 1000, whiteSpace: "pre-line" }}
                 >
                   {section.title}

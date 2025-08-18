@@ -115,7 +115,7 @@ export const HeroHeader = () => {
           }}
           className={s.heroBg}
           style={{
-            backgroundImage: `url(${img})`,
+            backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(${img})`,
             opacity: i === 0 ? 1 : 0,
             zIndex: i === 0 ? 1 : 0,
           }}
@@ -126,6 +126,7 @@ export const HeroHeader = () => {
         size="xl"
         className={s.heroTextContainer}
         mt={{ base: "41px", md: "81px" }}
+        mb={{ base: "0", md: 50 }}
       >
         <Flex
           direction={"column"}
@@ -136,10 +137,11 @@ export const HeroHeader = () => {
             direction={"column"}
           >
             <Text
-              fz={{ base: "24px", md: "60px" }}
-              fw={500}
+              fz={{ base: "26px", sm: "32px", md: "48px" }}
+              fw={800}
               lh={"1.2em"}
-              mb={30}
+              mb={10}
+              opacity={"0.9"}
             >
               {t("main_title")}
             </Text>
@@ -165,19 +167,19 @@ export const HeroHeader = () => {
                 ))}
             </Group> */}
             <Text
-              fz={{ base: "20px", md: "56px" }}
-              fw={500}
+              fz={{ base: "20px", sm: "24px", md: "36px" }}
+              fw={700}
               lh={"1.2em"}
-              style={{whiteSpace: "break-spaces"}}
+              style={{ whiteSpace: "break-spaces" }}
               mb={15}
             >
               {t("main_subtitle")}
             </Text>
             <Text
-              fz={{ base: "16px", sm: "20px", md: "24px" }}
-              fw={500}
-              lh={"1.2em"}
+              fz={{ base: "12px", sm: "16px", md: "20px" }}
+              fw={400}
               mb={"30px"}
+              lts={"1px"}
             >
               {t("header_subtitle")}
             </Text>

@@ -69,7 +69,8 @@ const PeoplePage = () => {
         >
           <Flex
             direction="column"
-            gap={40}
+            justify={"center"}
+            gap={80}
           >
             <Text
               ff="Geologica"
@@ -202,7 +203,7 @@ const PeoplePage = () => {
       >
         <Flex
           direction="row"
-          justify="space-between"
+          justify="space-around"
         >
           <Flex
             direction="column"
