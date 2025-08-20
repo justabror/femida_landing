@@ -145,7 +145,7 @@ const ContactSection = async () => {
 
       <Box mt="2rem">
         <iframe
-          src="https://yandex.ru/map-widget/v1/?um=constructor%3A2f7196b6d609dc4d9044c3cfb01f8992dcb0329764da4509fc9a5fc7b2e4a3b6&amp;source=constructor"
+          src="https://yandex.com/map-widget/v1/?um=constructor%3A1c7da8fdaae910abde1768b576613960106b5428df883e977ab5067f6716657b&amp;source=constructor"
           width="100%"
           height="399"
         ></iframe>
@@ -184,10 +184,11 @@ const Infos = () => {
         lh="1.375rem"
         c="rgb(95, 101, 103)"
         component="a"
-        href="https://yandex.uz/maps/10335/tashkent/?ll=69.265264%2C41.318524&mode=poi&poi%5Bpoint%5D=69.248374%2C41.316459&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D132543039073&z=15.4"
+        href="https://yandex.uz/maps/org/225635753458/?ll=69.301032%2C41.320171&z=18.72"
       >
         {/* {t("Address will be here")} */}
-        Address: Tashkent City
+        Address: г. Ташкент, Мирзо – Улугбекский район, Асака МСГ, улица
+        Мустакиллик шох, дом 88 – а, 3 этаж, 312-кабинет. Бизнес центр "ДАРХАН"
       </Text>
     </>
   );
