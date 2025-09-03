@@ -7,16 +7,19 @@ import {
   Center,
   Container,
   Flex,
-  Image,
   Paper,
   Space,
   Text,
 } from "@mantine/core";
 import { IconArmchair2, IconBrain, IconChartBar } from "@tabler/icons-react";
+
 import { useRef } from "react";
+
+import { useTranslations } from "next-intl";
+import Image from "next/image";
+
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useTranslations } from "next-intl";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -53,7 +56,7 @@ export const ShowServices = () => {
         ScrollTrigger.getAll().forEach((t) => t.kill());
       };
     },
-    { scope: containerRef }
+    { scope: containerRef },
   );
 
   // Каждому section присвоен уникальный набор сервисов
@@ -61,8 +64,7 @@ export const ShowServices = () => {
     {
       type: t("financeType"),
       title: t("financeTitle"),
-      image:
-        "https://beratung.vamtam.com/wp-content/uploads/2023/07/GettyImages-1125619200-square.jpg",
+      image: "/public/assets/service/6.png",
       bg: "#E7E8DB",
       services: [
         {
@@ -82,30 +84,30 @@ export const ShowServices = () => {
         },
       ],
     },
-    {
-      type: t("insuranceType"),
-      title: t("insuranceTitle"),
-      image:
-        "https://beratung.vamtam.com/wp-content/uploads/2023/07/GettyImages-1138996754-1024x686.jpg",
-      bg: "#DDDECB",
-      services: [
-        {
-          icon: <IconArmchair2 />,
-          title: t("insuranceService1.title"),
-          description: t("insuranceService1.description"),
-        },
-        {
-          icon: <IconBrain />,
-          title: t("insuranceService2.title"),
-          description: t("insuranceService2.description"),
-        },
-        {
-          icon: <IconChartBar />,
-          title: t("insuranceService3.title"),
-          description: t("insuranceService3.description"),
-        },
-      ],
-    },
+    // {
+    //   type: t("insuranceType"),
+    //   title: t("insuranceTitle"),
+    //   image:
+    //     "https://beratung.vamtam.com/wp-content/uploads/2023/07/GettyImages-1138996754-1024x686.jpg",
+    //   bg: "#DDDECB",
+    //   services: [
+    //     {
+    //       icon: <IconArmchair2 />,
+    //       title: t("insuranceService1.title"),
+    //       description: t("insuranceService1.description"),
+    //     },
+    //     {
+    //       icon: <IconBrain />,
+    //       title: t("insuranceService2.title"),
+    //       description: t("insuranceService2.description"),
+    //     },
+    //     {
+    //       icon: <IconChartBar />,
+    //       title: t("insuranceService3.title"),
+    //       description: t("insuranceService3.description"),
+    //     },
+    //   ],
+    // },
   ];
 
   return (
@@ -113,8 +115,17 @@ export const ShowServices = () => {
       ref={containerRef}
       mb={{ base: "130vh", sm: "120vh", md: "130vh" }}
     >
-      <Container size="xl" mt="7.5rem" mb="2.813rem">
-        <Text component="h5" fw={400} lh="1.5rem" fz="1.25rem">
+      <Container
+        size="xl"
+        mt="7.5rem"
+        mb="2.813rem"
+      >
+        <Text
+          component="h5"
+          fw={400}
+          lh="1.5rem"
+          fz="1.25rem"
+        >
           {t("services")}
         </Text>
         <Text
@@ -135,7 +146,11 @@ export const ShowServices = () => {
             key={i}
             bg={`${section.bg}`}
           >
-            <Box maw="1280px" m={{ base: "0 0", md: "0 auto" }} pos="relative">
+            <Box
+              maw="1280px"
+              m={{ base: "0 0", md: "0 auto" }}
+              pos="relative"
+            >
               <Center visibleFrom="md">
                 <ServiceText>
                   0{i + 1} {section.type}
@@ -145,7 +160,7 @@ export const ShowServices = () => {
                 <ServiceTitle
                   mt={{ base: "0", md: "250px" }}
                   pos={"relative"}
-                  fz={{ base: "2.0rem",  md: "4.375rem" }}
+                  fz={{ base: "2.0rem", md: "4.375rem" }}
                   style={{ zIndex: 1000, whiteSpace: "pre-line" }}
                 >
                   {section.title}
@@ -183,11 +198,10 @@ export const ShowServices = () => {
                 className="clipped-image"
               >
                 <Image
-                  w="100%"
-                  h="100%"
-                  src={section.image}
+                  width={500}
+                  height={470}
+                  src={"/public/assets/split-banner/8.png"}
                   alt={section.type}
-                  visibleFrom="md"
                 />
               </Box>
             </Box>
