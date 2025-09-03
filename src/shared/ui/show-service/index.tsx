@@ -10,16 +10,18 @@ import {
   Paper,
   Space,
   Text,
+  Image,
 } from "@mantine/core";
 import { IconArmchair2, IconBrain, IconChartBar } from "@tabler/icons-react";
 
 import { useRef } from "react";
 
 import { useTranslations } from "next-intl";
-import Image from "next/image";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+import IM from "@/shared/assets/logo.jpg";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -84,36 +86,36 @@ export const ShowServices = () => {
         },
       ],
     },
-    // {
-    //   type: t("insuranceType"),
-    //   title: t("insuranceTitle"),
-    //   image:
-    //     "https://beratung.vamtam.com/wp-content/uploads/2023/07/GettyImages-1138996754-1024x686.jpg",
-    //   bg: "#DDDECB",
-    //   services: [
-    //     {
-    //       icon: <IconArmchair2 />,
-    //       title: t("insuranceService1.title"),
-    //       description: t("insuranceService1.description"),
-    //     },
-    //     {
-    //       icon: <IconBrain />,
-    //       title: t("insuranceService2.title"),
-    //       description: t("insuranceService2.description"),
-    //     },
-    //     {
-    //       icon: <IconChartBar />,
-    //       title: t("insuranceService3.title"),
-    //       description: t("insuranceService3.description"),
-    //     },
-    //   ],
-    // },
+    {
+      type: t("insuranceType"),
+      title: t("insuranceTitle"),
+      image:
+        "https://beratung.vamtam.com/wp-content/uploads/2023/07/GettyImages-1138996754-1024x686.jpg",
+      bg: "#DDDECB",
+      services: [
+        {
+          icon: <IconArmchair2 />,
+          title: t("insuranceService1.title"),
+          description: t("insuranceService1.description"),
+        },
+        {
+          icon: <IconBrain />,
+          title: t("insuranceService2.title"),
+          description: t("insuranceService2.description"),
+        },
+        {
+          icon: <IconChartBar />,
+          title: t("insuranceService3.title"),
+          description: t("insuranceService3.description"),
+        },
+      ],
+    },
   ];
 
   return (
     <Box
       ref={containerRef}
-      mb={{ base: "130vh", sm: "120vh", md: "130vh" }}
+      mb={{ base: "100vh", sm: "120vh", md: "100vh" }}
     >
       <Container
         size="xl"
@@ -189,7 +191,7 @@ export const ShowServices = () => {
                 </Flex>
               </CardWrapper>
               <Space h="xl" />
-              <Box
+              {/* <Box
                 pos="absolute"
                 w="500px"
                 h="470px"
@@ -198,12 +200,12 @@ export const ShowServices = () => {
                 className="clipped-image"
               >
                 <Image
-                  width={500}
-                  height={470}
-                  src={"/public/assets/split-banner/8.png"}
+                  w={"100%"}
+                  h={"100%"}
+                  src={section.image}
                   alt={section.type}
                 />
-              </Box>
+              </Box> */}
             </Box>
           </ContentWrapper>
         ))}

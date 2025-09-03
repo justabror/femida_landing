@@ -97,7 +97,7 @@ export const HeroHeader = () => {
         gsap.fromTo(nextEl, { opacity: 0 }, { opacity: 1, duration: 1 });
         setBgIndex(next);
       }
-    }, 10000);
+    }, 2000);
 
     return () => clearInterval(bgInterval);
   }, [bgIndex, bgRefs]);
