@@ -10,7 +10,6 @@ import {
   Paper,
   Space,
   Text,
-  Image,
 } from "@mantine/core";
 import { IconArmchair2, IconBrain, IconChartBar } from "@tabler/icons-react";
 
