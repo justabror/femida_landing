@@ -36,6 +36,7 @@ type NavbarRoute = {
 };
 
 export const Navbar = ({ darkMode }: { darkMode?: boolean }) => {
+  const [opened, { toggle }] = useDisclosure();
   const isNotMobile = useMediaQuery(mediaQueries.mobile);
   const navRef = useRef<HTMLDivElement>(null);
   const t = useTranslations();
@@ -76,7 +77,7 @@ export const Navbar = ({ darkMode }: { darkMode?: boolean }) => {
       start: "top top",
       end: 99999,
       onUpdate: (self) => {
-        if (!nav) return;
+        if (!nav || opened) return;
         if (self.scroll() > 10) {
           nav.classList.add(s.scrolled);
         } else if (!darkMode) {
@@ -93,7 +94,7 @@ export const Navbar = ({ darkMode }: { darkMode?: boolean }) => {
   return (
     <nav
       ref={navRef}
-      className={cn(s.nav, [darkMode && s.scrolled])}
+      className={cn(s.nav, [(darkMode || opened) && s.scrolled])}
     >
       <NavContainer>
         <NavElement>
@@ -116,6 +117,8 @@ export const Navbar = ({ darkMode }: { darkMode?: boolean }) => {
             />
           ) : (
             <MobileNavList
+              opened={opened}
+              toggle={toggle}
               navbarRoutes={navbarRoutes}
               contactLabel={t("navbar_btn")}
             />
@@ -154,12 +157,14 @@ const scaleY = {
 const MobileNavList = ({
   navbarRoutes,
   contactLabel,
+  opened,
+  toggle,
 }: {
   navbarRoutes: NavbarRoute[];
   contactLabel: string;
+  opened: boolean;
+  toggle: () => void;
 }) => {
-  const [opened, { toggle }] = useDisclosure();
-
   return (
     <NavList gap={"sm"}>
       <ContactBtn label={contactLabel} />
@@ -178,7 +183,7 @@ const MobileNavList = ({
         {(transitionStyle) => (
           <NavbarDropdown
             style={{ ...transitionStyle, zIndex: 1 }}
-            bg={"#374B47"}
+            className={s.dropdown}
           >
             <NavList direction={"column"}>
               <NavItems navbarRoutes={navbarRoutes} />
@@ -238,5 +243,5 @@ const NavbarDropdown = Paper.withProps({
   left: 0,
   right: 0,
   bdrs: "0",
-  bg: "transparent",
+  // bg: "transparent",
 });

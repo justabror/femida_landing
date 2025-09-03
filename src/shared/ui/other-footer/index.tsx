@@ -3,7 +3,9 @@
 import { useGSAP } from "@gsap/react";
 import { Container, Flex, Image, Text } from "@mantine/core";
 import { IconCaretRightFilled, IconPhoneFilled } from "@tabler/icons-react";
+
 import { useRef } from "react";
+
 import { useTranslations } from "next-intl";
 
 import gsap from "gsap";
@@ -42,7 +44,10 @@ export const Footer = () => {
   );
 
   return (
-    <Flex mt={"65px"} direction={"column"}>
+    <Flex
+      mt={"65px"}
+      direction={"column"}
+    >
       {/* Верхние две кнопки */}
       <Flex
         w={"100%"}
@@ -99,14 +104,25 @@ export const Footer = () => {
       </Flex>
 
       {/* Нижняя часть */}
-      <Flex direction={"column"} bg={"#1B2524"}>
-        <Container size={"xl"} ref={textBoxRef}>
+      <Flex
+        direction={"column"}
+        bg={"#445055"}
+      >
+        <Container
+          size={"xl"}
+          ref={textBoxRef}
+        >
           <Flex
             direction={"row"}
             style={{ borderBottom: "1px solid #e4edf3" }}
             className={s.secTop}
           >
-            <Flex direction={"column"} pt={45} pb={45} gap={10}>
+            <Flex
+              direction={"column"}
+              pt={45}
+              pb={45}
+              gap={10}
+            >
               <Text
                 className={s.titleText}
                 ff={"Geologica"}
@@ -118,7 +134,11 @@ export const Footer = () => {
               >
                 {t("title")}
               </Text>
-              <Text fz={14} lh={"1.4em"} className={s.about}>
+              <Text
+                fz={14}
+                lh={"1.4em"}
+                className={s.about}
+              >
                 {t("description")}
               </Text>
             </Flex>

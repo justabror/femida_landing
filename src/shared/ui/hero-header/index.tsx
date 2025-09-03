@@ -97,7 +97,7 @@ export const HeroHeader = () => {
         gsap.fromTo(nextEl, { opacity: 0 }, { opacity: 1, duration: 1 });
         setBgIndex(next);
       }
-    }, 2000);
+    }, 10000);
 
     return () => clearInterval(bgInterval);
   }, [bgIndex, bgRefs]);
@@ -115,7 +115,7 @@ export const HeroHeader = () => {
           }}
           className={s.heroBg}
           style={{
-            backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(${img})`,
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.05),rgba(0, 0, 0, 0.5)), url(${img})`,
             opacity: i === 0 ? 1 : 0,
             zIndex: i === 0 ? 1 : 0,
           }}

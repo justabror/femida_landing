@@ -2,7 +2,9 @@
 
 .sec_tr {
   position: relative;
-  background-image: url("https://beratung.vamtam.com/wp-content/uploads/2023/07/GettyImages-1440181617.jpg");
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.766)),
+    url("https://beratung.vamtam.com/wp-content/uploads/2023/07/GettyImages-1440181617.jpg");
   background-size: cover;
   background-position: center;
   color: colors.$white;

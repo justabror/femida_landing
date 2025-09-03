@@ -21,7 +21,7 @@
   }
 
   &:hover {
-    color: colors.$primary-color;
+    color: colors.$light-gray;
 
     &::after {
       transform: scaleX(1);

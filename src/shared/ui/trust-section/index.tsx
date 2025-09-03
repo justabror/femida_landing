@@ -10,7 +10,9 @@ import {
   Space,
   Text,
 } from "@mantine/core";
+
 import { useTranslations } from "next-intl";
+
 import { BaseLink } from "../link";
 
 export const TrustSection = () => {
@@ -61,12 +63,8 @@ export const TrustSection = () => {
             gap="1.25rem"
             my="2rem"
           >
-            <Description>
-              {t("desc1")}
-            </Description>
-            <Description>
-              {t("desc2")}
-            </Description>
+            <Description>{t("desc1")}</Description>
+            <Description>{t("desc2")}</Description>
           </Flex>
           <BaseLink
             href="/"

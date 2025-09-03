@@ -16,10 +16,13 @@ import {
   IconArrowBadgeRightFilled,
   IconQuote,
 } from "@tabler/icons-react";
+
 import { useRef } from "react";
+
+import { useTranslations } from "next-intl";
+
 import { EmblaCarouselType } from "embla-carousel";
 import Autoplay from "embla-carousel-autoplay";
-import { useTranslations } from "next-intl";
 
 import s from "./styles.module.scss";
 
@@ -54,8 +57,16 @@ export const ClientReviews = () => {
       pos="relative"
       m={{ base: "7.5rem 0", md: "auto" }}
     >
-      <Flex align="center" direction="column" gap="1rem">
-        <Text lh="1.625rem" fz={{ base: "1.125rem", sm: "1.25rem" }} fw={400}>
+      <Flex
+        align="center"
+        direction="column"
+        gap="1rem"
+      >
+        <Text
+          lh="1.625rem"
+          fz={{ base: "1.125rem", sm: "1.25rem" }}
+          fw={400}
+        >
           {t("subtitle")}
         </Text>
         <Text
@@ -68,7 +79,11 @@ export const ClientReviews = () => {
         </Text>
       </Flex>
 
-      <Box pos="relative" w="100%" mt="2rem">
+      <Box
+        pos="relative"
+        w="100%"
+        mt="2rem"
+      >
         <ActionIcon
           variant="subtle"
           onClick={() => carouselRef.current?.scrollPrev()}
@@ -79,7 +94,10 @@ export const ClientReviews = () => {
           style={{ transform: "translateY(-50%)", zIndex: 100 }}
           visibleFrom="sm"
         >
-          <IconArrowBadgeLeftFilled color="gray" size="2rem" />
+          <IconArrowBadgeLeftFilled
+            color="#445055"
+            size="2rem"
+          />
         </ActionIcon>
 
         <Carousel
@@ -110,7 +128,10 @@ export const ClientReviews = () => {
           style={{ transform: "translateY(-50%)" }}
           visibleFrom="sm"
         >
-          <IconArrowBadgeRightFilled color="gray" size="2rem" />
+          <IconArrowBadgeRightFilled
+            color="#445055"
+            size="2rem"
+          />
         </ActionIcon>
       </Box>
     </Container>
@@ -131,17 +152,43 @@ const Review = ({ url, name, review }: ReviewProps) => (
     w="100%"
   >
     <Box w={{ base: "100%", md: "50%" }}>
-      <Image src={url} alt="Client Review" />
+      <Image
+        src={url}
+        alt="Client Review"
+      />
     </Box>
-    <Box w={{ base: "100%", md: "50%" }} p={{ base: "0", md: "lg" }}>
-      <Flex direction="column" gap="1rem">
-        <ThemeIcon variant="light" size={110} radius="xl" color="gray.2">
-          <IconQuote width="100%" height="100%" color="#374B47" />
+    <Box
+      w={{ base: "100%", md: "50%" }}
+      p={{ base: "0", md: "lg" }}
+    >
+      <Flex
+        direction="column"
+        gap="1rem"
+      >
+        <ThemeIcon
+          variant="light"
+          size={110}
+          radius="xl"
+          color="gray.2"
+        >
+          <IconQuote
+            width="100%"
+            height="100%"
+            color="#374B47"
+          />
         </ThemeIcon>
-        <Text fw={300} fz={{ base: "1.125rem", sm: "1.875rem" }} lh="1.8">
+        <Text
+          fw={300}
+          fz={{ base: "1.125rem", sm: "1.875rem" }}
+          lh="1.8"
+        >
           {review}
         </Text>
-        <Text fw={500} fz="0.875rem" lh="1.313rem">
+        <Text
+          fw={500}
+          fz="0.875rem"
+          lh="1.313rem"
+        >
           {name}
         </Text>
       </Flex>

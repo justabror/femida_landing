@@ -21,8 +21,6 @@ import { useTranslations } from "next-intl";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-import IM from "@/shared/assets/logo.jpg";
-
 gsap.registerPlugin(ScrollTrigger);
 
 export const ShowServices = () => {
@@ -67,7 +65,7 @@ export const ShowServices = () => {
       type: t("financeType"),
       title: t("financeTitle"),
       image: "/public/assets/service/6.png",
-      bg: "#E7E8DB",
+      bg: "#cecece",
       services: [
         {
           icon: <IconChartBar />,
@@ -91,7 +89,7 @@ export const ShowServices = () => {
       title: t("insuranceTitle"),
       image:
         "https://beratung.vamtam.com/wp-content/uploads/2023/07/GettyImages-1138996754-1024x686.jpg",
-      bg: "#DDDECB",
+      bg: "#b3b3b3",
       services: [
         {
           icon: <IconArmchair2 />,
@@ -115,7 +113,7 @@ export const ShowServices = () => {
   return (
     <Box
       ref={containerRef}
-      mb={{ base: "100vh", sm: "120vh", md: "100vh" }}
+      mb={{ base: "110vh", sm: "130vh" }}
     >
       <Container
         size="xl"
