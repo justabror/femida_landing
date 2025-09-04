@@ -1,5 +1,5 @@
 import { Metadata, Viewport } from "next";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getLocale } from "next-intl/server";
 import { Geologica } from "next/font/google";
 
 export const SystemFont = Geologica({
@@ -9,7 +9,6 @@ export const SystemFont = Geologica({
 });
 
 export async function metadataBase(): Promise<Metadata> {
-  const t = await getTranslations();
   const locale = await getLocale();
 
   return {
