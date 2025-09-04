@@ -3,55 +3,55 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
     <url>
-        <loc>https://femida.uz/</loc>
-        <xhtml:link rel="alternate" hreflang="uz-UZ" href="https://femida.uz/uz" />
-        <xhtml:link rel="alternate" hreflang="en-US" href="https://femida.uz/en" />
-        <xhtml:link rel="alternate" hreflang="ru-RU" href="https://femida.uz/ru" />
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://femida.uz/uz" />
+        <loc>https://femidafinance.uz/</loc>
+        <xhtml:link rel="alternate" hreflang="uz-UZ" href="https://femidafinance.uz/uz" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://femidafinance.uz/en" />
+        <xhtml:link rel="alternate" hreflang="ru-RU" href="https://femidafinance.uz/ru" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://femidafinance.uz/uz" />
         <lastmod>2025-09-04</lastmod>
         <priority>1.0</priority>
         <changefreq>weekly</changefreq>
     </url>
 
    <url>
-       <loc>https://femida.uz/service</loc>
-       <xhtml:link rel="alternate" hreflang="en-US" href="https://femida.uz/en/service" />
-       <xhtml:link rel="alternate" hreflang="uz-UZ" href="https://femida.uz/uz/service" />
-       <xhtml:link rel="alternate" hreflang="ru-RU" href="https://femida.uz/ru/service" />
-       <xhtml:link rel="alternate" hreflang="x-default" href="https://femida.uz/service" />
+       <loc>https://femidafinance.uz/service</loc>
+       <xhtml:link rel="alternate" hreflang="en-US" href="https://femidafinance.uz/en/service" />
+       <xhtml:link rel="alternate" hreflang="uz-UZ" href="https://femidafinance.uz/uz/service" />
+       <xhtml:link rel="alternate" hreflang="ru-RU" href="https://femidafinance.uz/ru/service" />
+       <xhtml:link rel="alternate" hreflang="x-default" href="https://femidafinance.uz/service" />
        <lastmod>2025-09-04</lastmod>
        <priority>0.8</priority>
        <changefreq>weekly</changefreq>
  </url>
 
  <url>
-       <loc>https://femida.uz/people</loc>
-       <xhtml:link rel="alternate" hreflang="en-US" href="https://femida.uz/en/people" />
-       <xhtml:link rel="alternate" hreflang="uz-UZ" href="https://femida.uz/uz/people" />
-       <xhtml:link rel="alternate" hreflang="ru-RU" href="https://femida.uz/ru/people" />
-       <xhtml:link rel="alternate" hreflang="x-default" href="https://femida.uz/people" />
+       <loc>https://femidafinance.uz/people</loc>
+       <xhtml:link rel="alternate" hreflang="en-US" href="https://femidafinance.uz/en/people" />
+       <xhtml:link rel="alternate" hreflang="uz-UZ" href="https://femidafinance.uz/uz/people" />
+       <xhtml:link rel="alternate" hreflang="ru-RU" href="https://femidafinance.uz/ru/people" />
+       <xhtml:link rel="alternate" hreflang="x-default" href="https://femidafinance.uz/people" />
        <lastmod>2025-09-04</lastmod>
        <priority>0.6</priority>
        <changefreq>monthly</changefreq>
    </url>
 
     <url>
-       <loc>https://femida.uz/about</loc>
-       <xhtml:link rel="alternate" hreflang="en-US" href="https://femida.uz/en/about" />
-       <xhtml:link rel="alternate" hreflang="uz-UZ" href="https://femida.uz/uz/about" />
-       <xhtml:link rel="alternate" hreflang="ru-RU" href="https://femida.uz/ru/about" />
-       <xhtml:link rel="alternate" hreflang="x-default" href="https://femida.uz/about" />
+       <loc>https://femidafinance.uz/about</loc>
+       <xhtml:link rel="alternate" hreflang="en-US" href="https://femidafinance.uz/en/about" />
+       <xhtml:link rel="alternate" hreflang="uz-UZ" href="https://femidafinance.uz/uz/about" />
+       <xhtml:link rel="alternate" hreflang="ru-RU" href="https://femidafinance.uz/ru/about" />
+       <xhtml:link rel="alternate" hreflang="x-default" href="https://femidafinance.uz/about" />
        <lastmod>2025-09-04</lastmod>
        <priority>0.7</priority>
        <changefreq>monthly</changefreq>
    </url>
 
     <url>
-       <loc>https://femida.uz/contact</loc>
-       <xhtml:link rel="alternate" hreflang="en-US" href="https://femida.uz/en/contact" />
-       <xhtml:link rel="alternate" hreflang="uz-UZ" href="https://femida.uz/uz/contact" />
-       <xhtml:link rel="alternate" hreflang="ru-RU" href="https://femida.uz/ru/contact" />
-       <xhtml:link rel="alternate" hreflang="x-default" href="https://femida.uz/contact" />
+       <loc>https://femidafinance.uz/contact</loc>
+       <xhtml:link rel="alternate" hreflang="en-US" href="https://femidafinance.uz/en/contact" />
+       <xhtml:link rel="alternate" hreflang="uz-UZ" href="https://femidafinance.uz/uz/contact" />
+       <xhtml:link rel="alternate" hreflang="ru-RU" href="https://femidafinance.uz/ru/contact" />
+       <xhtml:link rel="alternate" hreflang="x-default" href="https://femidafinance.uz/contact" />
        <lastmod>2025-09-04</lastmod>
        <priority>0.8</priority>
        <changefreq>monthly</changefreq>

@@ -15,9 +15,9 @@ export const StructuredData: React.FC<StructuredDataProps> = ({ locale }) => {
       : locale === 'ru'
       ? "Профессиональная юридическая компания в Ташкенте. Предоставляем услуги адвоката, правовые консультации, помощь по гражданскому, уголовному и семейному праву."
       : "Femida yuridik kompaniyasi - professional huquqiy xizmatlar, advokatlik, yuridik maslahat, fuqarolik, jinoyat va oilaviy huquq bo'yicha mutaxassis yordam.",
-    "url": "https://femida.uz/",
-    "logo": "https://femida.uz/android-chrome-192x192.png",
-    "image": "https://femida.uz/android-chrome-192x192.png",
+    "url": "https://femidafinance.uz/",
+    "logo": "https://femidafinance.uz/android-chrome-192x192.png",
+    "image": "https://femidafinance.uz/android-chrome-192x192.png",
     "telephone": "+998904800420",
     "email": "femida.fin.group@gmail.com",
     "address": {
@@ -78,7 +78,7 @@ export const StructuredData: React.FC<StructuredDataProps> = ({ locale }) => {
       }
     ],
     "sameAs": [
-      "https://femida.uz/"
+      "https://femidafinance.uz/"
     ]
   };
 

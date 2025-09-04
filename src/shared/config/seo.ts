@@ -61,7 +61,7 @@ export async function metadataBase(): Promise<Metadata> {
       "Iqtisodiy huquq",
       " Экономическое право",
     ],
-    metadataBase: new URL("https://femida.uz/"),
+    metadataBase: new URL("https://femidafinance.uz/"),
     alternates: {
       canonical: `/${locale}`,
       languages: {
@@ -73,7 +73,7 @@ export async function metadataBase(): Promise<Metadata> {
     openGraph: {
       title: titles[currentLocale],
       description: descriptions[currentLocale],
-      url: "https://femida.uz/",
+      url: "https://femidafinance.uz/",
       type: "website",
       images: [{
         url: "/android-chrome-192x192.png",

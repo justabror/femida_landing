@@ -31,7 +31,7 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       title: titles[currentLocale],
       description: descriptions[currentLocale],
-      url: `https://femida.uz/${locale}/about`,
+      url: `https://femidafinance.uz/${locale}/about`,
       type: "website",
     },
     alternates: {

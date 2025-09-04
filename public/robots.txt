@@ -3,4 +3,4 @@ Disallow:
 
 Allow: /
 
-Sitemap: https://femida.uz/sitemap.xml
+Sitemap: https://femidafinance.uz/sitemap.xml
