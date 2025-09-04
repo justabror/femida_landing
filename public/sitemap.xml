@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+    <url>
+        <loc>https://feminda.uz/</loc>
+        <xhtml:link rel="alternate" hreflang="uz-UZ" href="https://feminda.uz/uz" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://feminda.uz/en" />
+        <xhtml:link rel="alternate" hreflang="ru-RU" href="https://feminda.uz/ru" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://feminda.uz/uz" />
+        <lastmod>2025-06-02</lastmod>
+    </url>
+
+   <url>
+       <loc>https://feminda.uz/service</loc>
+       <xhtml:link rel="alternate" hreflang="en-US" href="https://feminda.uz/en/service" />
+       <xhtml:link rel="alternate" hreflang="uz-UZ" href="https://feminda.uz/uz/service" />
+       <xhtml:link rel="alternate" hreflang="ru-RU" href="https://feminda.uz/ru/service" />
+       <xhtml:link rel="alternate" hreflang="x-default" href="https://feminda.uz/service" />
+       <lastmod>2025-06-02</lastmod>
+ </url> 
+
+ <url>
+       <loc>https://feminda.uz/people</loc>
+       <xhtml:link rel="alternate" hreflang="en-US" href="https://feminda.uz/en/people" />
+       <xhtml:link rel="alternate" hreflang="uz-UZ" href="https://feminda.uz/uz/people" />
+       <xhtml:link rel="alternate" hreflang="ru-RU" href="https://feminda.uz/ru/people" />
+       <xhtml:link rel="alternate" hreflang="x-default" href="https://feminda.uz/people" />
+       <lastmod>2025-06-02</lastmod>
+   </url>
+
+    <url >
+       <loc>https://feminda.uz/about</loc>
+       <xhtml:link rel="alternate" hreflang="en-US" href="https://feminda.uz/en/about" />
+       <xhtml:link rel="alternate" hreflang="uz-UZ" href="https://feminda.uz/uz/about" />
+       <xhtml:link rel="alternate" hreflang="ru-RU" href="https://feminda.uz/ru/about" />
+       <xhtml:link rel="alternate" hreflang="x-default" href="https://feminda.uz/about" />
+       <lastmod>2025-06-02</lastmod>
+   </url>
+
+</urlset>
