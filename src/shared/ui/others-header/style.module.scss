@@ -1,6 +1,5 @@
 @use "../../lib/colors.scss" as colors;
 
-
 .bgOverlay {
   background-image: url("https://beratung.vamtam.com/wp-content/uploads/2023/07/dots-left-GettyImages-1478119123.png");
   background-position: top left;
@@ -9,7 +8,7 @@
 
   height: 100%;
 
-  background-color: colors.$iceberg ;
+  background-color: #e8e8e8;
 }
 
 .headerUpper {
@@ -21,7 +20,7 @@
   display: flex;
   align-items: center;
 
-  background-color: colors.$limed-spruce;
+  background-color: colors.$primary-color;
   margin: 0px;
 
   & img {

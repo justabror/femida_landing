@@ -89,7 +89,7 @@ export const Navbar = ({ darkMode }: { darkMode?: boolean }) => {
     return () => {
       ScrollTrigger.getAll().forEach((t) => t.kill());
     };
-  }, [darkMode]);
+  }, [darkMode, opened]);
 
   return (
     <nav

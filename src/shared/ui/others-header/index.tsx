@@ -1,5 +1,6 @@
-import { Box, Container, Flex, Image, Text, Title } from "@mantine/core";
+import { Box, Container, Flex, Text, Title } from "@mantine/core";
 
+import { AwesomeVector } from "../awesome-vector";
 import s from "./style.module.scss";
 
 type OtherHeaderProps = {
@@ -40,9 +41,11 @@ export const OtherHeader = ({
             gap={"4px"}
             p={"12px 35px 12px 30px"}
           >
-            <Image
-              src="https://beratung.vamtam.com/wp-content/uploads/2023/06/fav-icon-150x150.png"
-              alt="icon_slash"
+            <AwesomeVector
+              pos="relative"
+              h="18px"
+              w="25px"
+              bg="#cecece"
             />
             <Text className={s.title}>{aboutTitle}</Text>
           </Flex>
@@ -68,37 +71,28 @@ export const OtherHeader = ({
         </Flex>
       </Container>
 
-      <Image
-        src="https://beratung.vamtam.com/wp-content/uploads/2023/06/fav-icon-150x150.png"
-        alt="icon_slash"
-        className={s.slash}
-        pos="absolute"
+      <AwesomeVector
+        bg="rgba(206, 206, 206, 0.53)"
         bottom={"-100px"}
-        right={"-80px"}
-        w={250}
-        opacity={0.6}
+        right={"-190px"}
+        w="340px"
+        h="250px"
         visibleFrom="md"
       />
-      <Image
-        src="https://beratung.vamtam.com/wp-content/uploads/2023/06/fav-icon-150x150.png"
-        alt="icon_slash"
-        className={s.slash}
-        pos="absolute"
+      <AwesomeVector
+        bg="rgba(206, 206, 206, 0.53)"
         bottom={"-200px"}
-        right={"-90px"}
-        w={250}
-        opacity={0.6}
+        right={"-200px"}
+        w="340px"
+        h="250px"
         visibleFrom="md"
       />
-      <Image
-        src="https://beratung.vamtam.com/wp-content/uploads/2023/06/fav-icon-150x150.png"
-        alt="icon_slash"
-        className={s.slash}
-        pos="absolute"
+      <AwesomeVector
+        bg="rgba(206, 206, 206, 0.53)"
         bottom={"-300px"}
-        right={"-100px"}
-        w={250}
-        opacity={0.6}
+        right={"-210px"}
+        w="340px"
+        h="250px"
         visibleFrom="md"
       />
     </Box>

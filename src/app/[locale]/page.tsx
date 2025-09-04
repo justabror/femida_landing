@@ -12,6 +12,7 @@ import {
 import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
 
+import { CompanyStatistics } from "@/entities/company-statistics";
 import { ContactForm } from "@/features/contact-form";
 import s from "@/pages/main/style.module.scss";
 import {
@@ -26,7 +27,7 @@ import {
   TrustSection,
 } from "@/shared/ui";
 
-const MainPage = async () => {
+const MainPage = () => {
   return (
     <Flex
       direction="column"
@@ -35,6 +36,7 @@ const MainPage = async () => {
       <Navbar />
       <HeroHeader />
       <ShowServices />
+      <CompanyStatistics />
       <SplitterBanner />
       <TrustSection />
       <GuidePrinciples />

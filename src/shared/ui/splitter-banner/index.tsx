@@ -4,6 +4,7 @@ import { Box, Container, Flex, Text } from "@mantine/core";
 
 import { useTranslations } from "next-intl";
 
+import { AwesomeVector } from "../awesome-vector";
 import s from "./style.module.scss";
 
 export const SplitterBanner = () => {
@@ -16,6 +17,10 @@ export const SplitterBanner = () => {
         h="100%"
         className={s.vector}
       >
+        <AwesomeVector
+          bottom="-30px"
+          left="10px"
+        />
         <Flex
           direction="column"
           className={s.flexs}

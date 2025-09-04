@@ -1,7 +1,7 @@
 "use client";
 
 import { useGSAP } from "@gsap/react";
-import { Container, Flex, Image, Text } from "@mantine/core";
+import { Container, Flex, Text } from "@mantine/core";
 import { IconCaretRightFilled, IconPhoneFilled } from "@tabler/icons-react";
 
 import { useRef } from "react";
@@ -11,6 +11,7 @@ import { useTranslations } from "next-intl";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+import { AwesomeVector } from "../awesome-vector";
 import { BtnBasic } from "../btn-basic/ui";
 import { BaseLink } from "../link";
 import s from "./style.module.scss";
@@ -58,22 +59,20 @@ export const Footer = () => {
         <Flex
           w={{ base: "100%", md: "50%" }}
           justify={"flex-end"}
-          bg={"#374b47"}
+          bg={"#cecece"}
           pos={"relative"}
         >
-          <Image
-            src="https://beratung.vamtam.com/wp-content/uploads/2023/06/fav-icon-150x150.png"
-            alt="footer_icon"
-            pos={"absolute"}
-            w={"130px"}
-            bottom={0}
-            left={110}
+          <AwesomeVector
+            bottom="0"
+            h="130px"
+            w="185px"
+            left="110px"
             visibleFrom="md"
           />
 
           <BtnBasic
             variant="filled"
-            color="#374b47"
+            color="#cecece"
             leftSection={<IconPhoneFilled />}
             className={s.topLeft}
             size="xl"
@@ -86,13 +85,13 @@ export const Footer = () => {
         <Flex
           w={{ base: "100%", md: "50%" }}
           justify={"flex-start"}
-          bg={"#8fd299"}
+          bg={"#6d7578"}
         >
           <BtnBasic
             component={BaseLink}
             href="/contact"
             variant="filled"
-            color="#8fd299"
+            color="#6d7578"
             rightSection={<IconCaretRightFilled />}
             className={s.topRight}
             size="xl"
@@ -106,7 +105,7 @@ export const Footer = () => {
       {/* Нижняя часть */}
       <Flex
         direction={"column"}
-        bg={"#445055"}
+        bg={"#8a8f91"}
       >
         <Container
           size={"xl"}

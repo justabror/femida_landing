@@ -1,0 +1,6 @@
+@use "../../lib/colors.scss" as colors;
+
+.awesomeVector {
+  clip-path: polygon(25% 0%, 70% 0, 45% 100%, 0% 100%);
+  z-index: 9999;
+}

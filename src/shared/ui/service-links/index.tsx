@@ -1,5 +1,4 @@
 import { Anchor, Flex, Text } from "@mantine/core";
-import { IconCaretRightFilled } from "@tabler/icons-react";
 
 import s from "./style.module.scss";
 
@@ -43,11 +42,5 @@ export const ServiceContact = ({ linkLabel, text }: ServiceContactProps) => (
         {text}
       </Text>
     </Flex>
-    <Anchor
-      unstyled
-      className={`${s.serviceIcon} ${s.serviceLink}`}
-    >
-      <IconCaretRightFilled />
-    </Anchor>
   </Flex>
 );

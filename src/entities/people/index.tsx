@@ -1,22 +1,29 @@
-import { people } from "@/entities/people/data";
-import { redirect } from "@/i18n/navigation";
-import { PeopleCard } from "@/shared/ui";
 import { Box, Container, SimpleGrid } from "@mantine/core";
+
 import { useTranslations, useLocale } from "next-intl";
 
-export default function List() {
+import { redirect } from "@/i18n/navigation";
+import { PeopleCard } from "@/shared/ui";
+
+import { people } from "./data";
+
+export default function List({ showItemsLimit }: { showItemsLimit?: number }) {
   const t = useTranslations("people");
   const locale = useLocale();
 
   return (
-    <Container size="xl" mt="40px" mb={{ base: 80, md: 130 }}>
+    <Container
+      size="xl"
+      mt="40px"
+      mb={{ base: 80 }}
+    >
       <SimpleGrid
         cols={{ base: 2, sm: 3, md: 4 }}
         spacing="30px"
         verticalSpacing="35px"
         mb="40px"
       >
-        {people.map((person, index) => (
+        {people.slice(0, showItemsLimit).map((person, index) => (
           <Box
             key={index}
             onClick={() => redirect({ href: `/people/${person.slug}`, locale })}

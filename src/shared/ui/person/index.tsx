@@ -12,6 +12,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import { people } from "@/entities/people/data";
 import { BaseLink, Footer, Navbar } from "@/shared/ui";
 
+import { AwesomeVector } from "../awesome-vector";
 import s from "./styles.module.scss";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -85,12 +86,15 @@ const Person = ({ slug }: PersonDetailsClientProps) => {
             pos={"sticky"}
             top="50%"
             className={s.vector}
-            style={{ transform: "translateY(-45%)", alignSelf: "flex-start" }}
             visibleFrom="md"
           >
             <Image
               src={person.img}
               alt={t(person.titleKey)}
+            />
+            <AwesomeVector
+              bottom={-30}
+              left={45}
             />
           </Box>
           <Flex
@@ -123,7 +127,7 @@ const Person = ({ slug }: PersonDetailsClientProps) => {
             </Text>
             <Text
               fz={{ base: 20, md: 24 }}
-              style={{ color: "#8fd299" }}
+              style={{ color: "#cecece" }}
             >
               {t(person.subtitleKey)}
             </Text>
@@ -136,7 +140,7 @@ const Person = ({ slug }: PersonDetailsClientProps) => {
             <Text fz={18}>{t("personpage_more")}</Text>
 
             <BaseLink
-              style={{ color: "#8fd299" }}
+              style={{ color: "#cecece" }}
               maw={130}
               mt={60}
               href="/people"

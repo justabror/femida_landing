@@ -8,23 +8,30 @@
   background-size: cover;
   background-position: center;
   color: colors.$white;
-  height: 550px;
+  height: 740px;
+  margin-top: 4.5rem;
+}
+
+@media screen and (max-width: 768px) {
+  .sec_tr {
+    height: 550px;
+  }
 }
 
 .vector {
   position: relative;
 
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: -30px;
-    left: 10px;
-    width: 80px;
-    height: 60px;
-    background: colors.$primary-color;
-    clip-path: polygon(25% 0%, 70% 0, 45% 100%, 0% 100%);
-    z-index: 2;
-  }
+  // &::after {
+  //   content: "";
+  //   position: absolute;
+  //   bottom: -30px;
+  //   left: 10px;
+  //   width: 80px;
+  //   height: 60px;
+  //   background: colors.$primary-color;
+  //   clip-path: polygon(25% 0%, 70% 0, 45% 100%, 0% 100%);
+  //   z-index: 2;
+  // }
 }
 
 .flexs {

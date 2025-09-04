@@ -17,6 +17,7 @@ import { useRef } from "react";
 
 import { useTranslations } from "next-intl";
 
+import cn from "classnames";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -63,7 +64,6 @@ export const ShowServices = () => {
     {
       type: t("financeType"),
       title: t("financeTitle"),
-      image: "/public/assets/service/6.png",
       bg: "#cecece",
       services: [
         {
@@ -86,8 +86,6 @@ export const ShowServices = () => {
     {
       type: t("insuranceType"),
       title: t("insuranceTitle"),
-      image:
-        "https://beratung.vamtam.com/wp-content/uploads/2023/07/GettyImages-1138996754-1024x686.jpg",
       bg: "#b3b3b3",
       services: [
         {
@@ -112,7 +110,7 @@ export const ShowServices = () => {
   return (
     <Box
       ref={containerRef}
-      mb={{ base: "110vh", sm: "130vh" }}
+      mb={{ base: "90vh" }}
     >
       <Container
         size="xl"
@@ -160,7 +158,7 @@ export const ShowServices = () => {
                   mt={{ base: "0", md: "250px" }}
                   pos={"relative"}
                   fz={{ base: "2.0rem", md: "4.375rem" }}
-                  style={{ zIndex: 1000, whiteSpace: "pre-line" }}
+                  style={{ zIndex: 1000 }}
                 >
                   {section.title}
                 </ServiceTitle>
@@ -188,21 +186,14 @@ export const ShowServices = () => {
                 </Flex>
               </CardWrapper>
               <Space h="xl" />
-              {/* <Box
+              <Box
                 pos="absolute"
                 w="500px"
                 h="470px"
                 bottom="0"
                 right="0"
-                className="clipped-image"
-              >
-                <Image
-                  w={"100%"}
-                  h={"100%"}
-                  src={section.image}
-                  alt={section.type}
-                />
-              </Box> */}
+                className={cn("clipped-image", ["clipped-image-" + (i + 1)])}
+              ></Box>
             </Box>
           </ContentWrapper>
         ))}

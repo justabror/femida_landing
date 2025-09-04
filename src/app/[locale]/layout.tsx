@@ -1,5 +1,7 @@
 import { MantineProvider } from "@mantine/core";
 import "@mantine/core/styles.css";
+import { Notifications } from "@mantine/notifications";
+import "@mantine/notifications/styles.css";
 
 import { PropsWithChildren } from "react";
 
@@ -35,10 +37,13 @@ export default async function Layout({ children, params }: LayoutProps) {
     <html lang={locale}>
       <body className={seoConf.SystemFont.className}>
         <NextIntlClientProvider
-          messages={messages} 
+          messages={messages}
           locale={locale}
         >
-          <MantineProvider theme={theme}>{children}</MantineProvider>
+          <MantineProvider theme={theme}>
+            <Notifications />
+            {children}
+          </MantineProvider>
         </NextIntlClientProvider>
       </body>
     </html>
