@@ -3,4 +3,4 @@ Disallow:
 
 Allow: /
 
-Sitemap: https://feminda.uz/sitemap.xml
+Sitemap: https://femida.uz/sitemap.xml

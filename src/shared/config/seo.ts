@@ -11,9 +11,23 @@ export const SystemFont = Geologica({
 export async function metadataBase(): Promise<Metadata> {
   const locale = await getLocale();
 
+  const titles = {
+    uz: "Femida - Professional Yuridik Xizmatlar | Huquqiy Maslahat va Advokatlik",
+    ru: "Femida - Профессиональные Юридические Услуги | Правовые Консультации",
+    en: "Femida - Professional Legal Services | Legal Consultation & Advocacy"
+  };
+
+  const descriptions = {
+    uz: "Femida yuridik kompaniyasi - professional huquqiy xizmatlar, advokatlik, yuridik maslahat, fuqarolik, jinoyat va oilaviy huquq bo'yicha mutaxassis yordam. Toshkent shahrida ishonchli yuridik himoya.",
+    ru: "Femida - профессиональная юридическая компания в Ташкенте. Предоставляем услуги адвоката, правовые консультации, помощь по гражданскому, уголовному и семейному праву. Надежная правовая защита.",
+    en: "Femida - professional law firm in Tashkent providing legal services, advocacy, legal consultation, civil, criminal and family law assistance. Reliable legal protection and expert legal advice."
+  };
+
+  const currentLocale = locale === 'en' ? 'en' : locale === 'ru' ? 'ru' : 'uz';
+
   return {
-    title: "Femida",
-    description: "Femida - Юридик хизматлар",
+    title: titles[currentLocale],
+    description: descriptions[currentLocale],
     keywords: [
       "Femida",
       "Фемида",
@@ -57,13 +71,24 @@ export async function metadataBase(): Promise<Metadata> {
       },
     },
     openGraph: {
-      title: "Femida",
-      description: "Femida - Юридик хизматлар",
+      title: titles[currentLocale],
+      description: descriptions[currentLocale],
       url: "https://femida.uz/",
       type: "website",
-      images: "/android-chrome-192x192.png",
-      siteName: "femida",
+      images: [{
+        url: "/android-chrome-192x192.png",
+        width: 192,
+        height: 192,
+        alt: "Femida Legal Services Logo"
+      }],
+      siteName: "Femida Legal Services",
       locale: locale === "en" ? "en_US" : locale === "ru" ? "ru_RU" : "uz_UZ",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: titles[currentLocale],
+      description: descriptions[currentLocale],
+      images: ["/android-chrome-192x192.png"],
     },
     icons: {
       icon: "/favicon-16x16.png",

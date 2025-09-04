@@ -11,6 +11,7 @@ import { notFound } from "next/navigation";
 
 import { routing } from "@/i18n/routing";
 import { seoConf, theme } from "@/shared/config";
+import { StructuredData } from "@/shared/ui";
 
 import "../globals.css";
 
@@ -35,6 +36,9 @@ export default async function Layout({ children, params }: LayoutProps) {
 
   return (
     <html lang={locale}>
+      <head>
+        <StructuredData locale={locale} />
+      </head>
       <body className={seoConf.SystemFont.className}>
         <NextIntlClientProvider
           messages={messages}

@@ -3,39 +3,58 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
     <url>
-        <loc>https://feminda.uz/</loc>
-        <xhtml:link rel="alternate" hreflang="uz-UZ" href="https://feminda.uz/uz" />
-        <xhtml:link rel="alternate" hreflang="en-US" href="https://feminda.uz/en" />
-        <xhtml:link rel="alternate" hreflang="ru-RU" href="https://feminda.uz/ru" />
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://feminda.uz/uz" />
-        <lastmod>2025-06-02</lastmod>
+        <loc>https://femida.uz/</loc>
+        <xhtml:link rel="alternate" hreflang="uz-UZ" href="https://femida.uz/uz" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://femida.uz/en" />
+        <xhtml:link rel="alternate" hreflang="ru-RU" href="https://femida.uz/ru" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://femida.uz/uz" />
+        <lastmod>2025-09-04</lastmod>
+        <priority>1.0</priority>
+        <changefreq>weekly</changefreq>
     </url>
 
    <url>
-       <loc>https://feminda.uz/service</loc>
-       <xhtml:link rel="alternate" hreflang="en-US" href="https://feminda.uz/en/service" />
-       <xhtml:link rel="alternate" hreflang="uz-UZ" href="https://feminda.uz/uz/service" />
-       <xhtml:link rel="alternate" hreflang="ru-RU" href="https://feminda.uz/ru/service" />
-       <xhtml:link rel="alternate" hreflang="x-default" href="https://feminda.uz/service" />
-       <lastmod>2025-06-02</lastmod>
- </url> 
+       <loc>https://femida.uz/service</loc>
+       <xhtml:link rel="alternate" hreflang="en-US" href="https://femida.uz/en/service" />
+       <xhtml:link rel="alternate" hreflang="uz-UZ" href="https://femida.uz/uz/service" />
+       <xhtml:link rel="alternate" hreflang="ru-RU" href="https://femida.uz/ru/service" />
+       <xhtml:link rel="alternate" hreflang="x-default" href="https://femida.uz/service" />
+       <lastmod>2025-09-04</lastmod>
+       <priority>0.8</priority>
+       <changefreq>weekly</changefreq>
+ </url>
 
  <url>
-       <loc>https://feminda.uz/people</loc>
-       <xhtml:link rel="alternate" hreflang="en-US" href="https://feminda.uz/en/people" />
-       <xhtml:link rel="alternate" hreflang="uz-UZ" href="https://feminda.uz/uz/people" />
-       <xhtml:link rel="alternate" hreflang="ru-RU" href="https://feminda.uz/ru/people" />
-       <xhtml:link rel="alternate" hreflang="x-default" href="https://feminda.uz/people" />
-       <lastmod>2025-06-02</lastmod>
+       <loc>https://femida.uz/people</loc>
+       <xhtml:link rel="alternate" hreflang="en-US" href="https://femida.uz/en/people" />
+       <xhtml:link rel="alternate" hreflang="uz-UZ" href="https://femida.uz/uz/people" />
+       <xhtml:link rel="alternate" hreflang="ru-RU" href="https://femida.uz/ru/people" />
+       <xhtml:link rel="alternate" hreflang="x-default" href="https://femida.uz/people" />
+       <lastmod>2025-09-04</lastmod>
+       <priority>0.6</priority>
+       <changefreq>monthly</changefreq>
    </url>
 
-    <url >
-       <loc>https://feminda.uz/about</loc>
-       <xhtml:link rel="alternate" hreflang="en-US" href="https://feminda.uz/en/about" />
-       <xhtml:link rel="alternate" hreflang="uz-UZ" href="https://feminda.uz/uz/about" />
-       <xhtml:link rel="alternate" hreflang="ru-RU" href="https://feminda.uz/ru/about" />
-       <xhtml:link rel="alternate" hreflang="x-default" href="https://feminda.uz/about" />
-       <lastmod>2025-06-02</lastmod>
+    <url>
+       <loc>https://femida.uz/about</loc>
+       <xhtml:link rel="alternate" hreflang="en-US" href="https://femida.uz/en/about" />
+       <xhtml:link rel="alternate" hreflang="uz-UZ" href="https://femida.uz/uz/about" />
+       <xhtml:link rel="alternate" hreflang="ru-RU" href="https://femida.uz/ru/about" />
+       <xhtml:link rel="alternate" hreflang="x-default" href="https://femida.uz/about" />
+       <lastmod>2025-09-04</lastmod>
+       <priority>0.7</priority>
+       <changefreq>monthly</changefreq>
+   </url>
+
+    <url>
+       <loc>https://femida.uz/contact</loc>
+       <xhtml:link rel="alternate" hreflang="en-US" href="https://femida.uz/en/contact" />
+       <xhtml:link rel="alternate" hreflang="uz-UZ" href="https://femida.uz/uz/contact" />
+       <xhtml:link rel="alternate" hreflang="ru-RU" href="https://femida.uz/ru/contact" />
+       <xhtml:link rel="alternate" hreflang="x-default" href="https://femida.uz/contact" />
+       <lastmod>2025-09-04</lastmod>
+       <priority>0.8</priority>
+       <changefreq>monthly</changefreq>
    </url>
 
 </urlset>

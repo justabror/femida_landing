@@ -1,7 +1,6 @@
-"use client";
-
 import { Box, Container, Flex, Image, SimpleGrid, Text } from "@mantine/core";
-
+import { Metadata } from "next";
+import { getLocale, getTranslations } from "next-intl/server";
 import { useTranslations } from "next-intl";
 
 import List from "@/entities/people";
@@ -15,6 +14,44 @@ import {
   OtherSplitter,
   ServiceContact,
 } from "@/shared/ui";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale();
+  const t = await getTranslations('service');
+  
+  const titles = {
+    uz: `${t('header.title')} - Femida | Yuridik Xizmatlar`,
+    ru: `${t('header.title')} - Femida | Юридические Услуги`,
+    en: `${t('header.title')} - Femida | Legal Services`
+  };
+
+  const descriptions = {
+    uz: "Femida yuridik xizmatları: fuqarolik huquqi, jinoyat huquqi, oilaviy huquq, mehnat huquqi, iqtisodiy huquq. Professional advokatlar va huquqshunoslardan maslahat oling.",
+    ru: "Юридические услуги Femida: гражданское право, уголовное право, семейное право, трудовое право, экономическое право. Получите консультацию от профессиональных адвокатов.",
+    en: "Femida legal services: civil law, criminal law, family law, labor law, economic law. Get consultation from professional lawyers and legal advisors."
+  };
+
+  const currentLocale = locale === 'en' ? 'en' : locale === 'ru' ? 'ru' : 'uz';
+
+  return {
+    title: titles[currentLocale],
+    description: descriptions[currentLocale],
+    openGraph: {
+      title: titles[currentLocale],
+      description: descriptions[currentLocale],
+      url: `https://femida.uz/${locale}/service`,
+      type: "website",
+    },
+    alternates: {
+      canonical: `/${locale}/service`,
+      languages: {
+        "uz-UZ": "/uz/service",
+        "en-US": "/en/service",
+        "ru-RU": "/ru/service",
+      },
+    },
+  };
+}
 
 const ServicePage = () => {
   const t = useTranslations("service");
@@ -126,7 +163,7 @@ const ServicePage = () => {
               w="160px"
               h="195px"
               src="https://beratung.vamtam.com/wp-content/uploads/2023/06/illustration-3.svg"
-              alt="иллюстрация услуги"
+              alt="Legal services illustration - Professional legal consultation and advocacy"
             />
           </Flex>
         </Container>

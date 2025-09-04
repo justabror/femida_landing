@@ -61,7 +61,7 @@ const ContactSection = async () => {
       <Space h="8.125rem" />
       <Box>
         <Text
-          component="h5"
+          component="h3"
           fw={400}
           lh="1.5rem"
           fz="1.25rem"
@@ -87,7 +87,7 @@ const ContactSection = async () => {
         >
           <Image
             src="https://beratung.vamtam.com/wp-content/uploads/2023/07/GettyImages-1138996754-1024x686.jpg"
-            alt={t("imageAlt")}
+            alt="Professional legal consultation - Femida law firm office"
           />
           <Text
             fz="0.875rem"
@@ -120,7 +120,7 @@ const ContactSection = async () => {
         >
           <Image
             src="https://beratung.vamtam.com/wp-content/uploads/2023/07/GettyImages-1138996754-1024x686.jpg"
-            alt={t("imageAlt")}
+            alt="Professional legal consultation - Femida law firm office"
           />
           <Divider my="md" />
           <ContactForm />
@@ -150,6 +150,7 @@ const ContactSection = async () => {
           src="https://yandex.com/map-widget/v1/?um=constructor%3A1c7da8fdaae910abde1768b576613960106b5428df883e977ab5067f6716657b&amp;source=constructor"
           width="100%"
           height="399"
+          title="Femida Legal Services Location Map - Tashkent Office"
         ></iframe>
       </Box>
     </Container>

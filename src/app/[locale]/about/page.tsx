@@ -1,12 +1,49 @@
-"use client";
-
 import { Box, Container, Flex, Image, SimpleGrid, Text } from "@mantine/core";
-
+import { Metadata } from "next";
+import { getLocale, getTranslations } from "next-intl/server";
 import { useTranslations } from "next-intl";
 
 import s from "@/pages/about/style.module.scss";
 import { Navbar, Footer, OtherHeader, SplitSection } from "@/shared/ui";
 import { AwesomeVector } from "@/shared/ui/awesome-vector";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale();
+  const t = await getTranslations('about');
+  
+  const titles = {
+    uz: `${t('title')} - Femida | Bizning Haqimizda`,
+    ru: `${t('title')} - Femida | О нас`,
+    en: `${t('title')} - Femida | About Us`
+  };
+
+  const descriptions = {
+    uz: "Femida yuridik kompaniyasi haqida ma'lumot. Bizning missiyamiz, jamoamiz va professional yuridik xizmatlarimiz haqida batafsil ma'lumot oling.",
+    ru: "Информация о юридической компании Femida. Узнайте о нашей миссии, команде и профессиональных юридических услугах.",
+    en: "Information about Femida law firm. Learn about our mission, team and professional legal services."
+  };
+
+  const currentLocale = locale === 'en' ? 'en' : locale === 'ru' ? 'ru' : 'uz';
+
+  return {
+    title: titles[currentLocale],
+    description: descriptions[currentLocale],
+    openGraph: {
+      title: titles[currentLocale],
+      description: descriptions[currentLocale],
+      url: `https://femida.uz/${locale}/about`,
+      type: "website",
+    },
+    alternates: {
+      canonical: `/${locale}/about`,
+      languages: {
+        "uz-UZ": "/uz/about",
+        "en-US": "/en/about",
+        "ru-RU": "/ru/about",
+      },
+    },
+  };
+}
 
 const AboutPage = () => {
   const t = useTranslations("about");
@@ -232,7 +269,7 @@ const AboutPage = () => {
             <Flex>
               <Image
                 src="https://beratung.vamtam.com/wp-content/uploads/2023/06/illustration-1.svg"
-                alt=""
+                alt="Professional legal consultation illustration - Femida legal services advantages"
               />
             </Flex>
 
