@@ -13,11 +13,11 @@ import { BtnBasic } from "@/shared/ui";
 import s from "./style.module.scss";
 
 const images = [
-  "https://beratung.vamtam.com/wp-content/uploads/2023/07/GettyImages-1426960043.jpg",
-  "https://beratung.vamtam.com/wp-content/uploads/2023/07/GettyImages-1150296494.jpg",
-  "https://beratung.vamtam.com/wp-content/uploads/2023/07/GettyImages-1371643065.jpg",
-  "https://beratung.vamtam.com/wp-content/uploads/2023/07/GettyImages-1358389594.jpg",
-  "https://beratung.vamtam.com/wp-content/uploads/2023/07/GettyImages-1446755424.jpg",
+  "./assets/hero/5.png",
+  "./assets/hero/2.png",
+  "./assets/hero/3.png",
+  "./assets/hero/4.png",
+  "./assets/hero/1.png",
 ];
 
 export const HeroHeader = () => {
@@ -105,7 +105,7 @@ export const HeroHeader = () => {
   return (
     <Box
       className={s.heroWrapper}
-      mih={{ base: "70vh", md: "80vh" }}
+      mih={{ base: "70vh", md: "100vh" }}
     >
       {images.map((img, i) => (
         <Box
@@ -115,7 +115,7 @@ export const HeroHeader = () => {
           }}
           className={s.heroBg}
           style={{
-            backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(${img})`,
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.05),rgba(0, 0, 0, 0.5)), url(${img})`,
             opacity: i === 0 ? 1 : 0,
             zIndex: i === 0 ? 1 : 0,
           }}

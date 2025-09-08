@@ -9,22 +9,24 @@ import {
   Transition,
 } from "@mantine/core";
 import { useDisclosure, useMediaQuery } from "@mantine/hooks";
+
 import { useEffect, useRef } from "react";
+
+import { useTranslations } from "next-intl";
 import Image from "next/image";
+
 import cn from "classnames";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 import { Link } from "@/i18n/navigation";
-import { useTranslations } from "next-intl";
+import Logo from "@/shared/assets/logo.jpg";
 import { mediaQueries } from "@/shared/lib/constants";
 
 import { BtnBasic } from "../btn-basic/ui";
 import { LanguageSwitcher } from "../language-switcher";
 import { BaseLink } from "../link";
 import s from "./styles.module.scss";
-import logo from "@/shared/assets/logo.svg";
-import logosmall from "@/shared/assets/logo_small.svg";
-
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -33,10 +35,8 @@ type NavbarRoute = {
   href: string;
 };
 
-const LOGO_URL = logo;
-const LOGOSM_URL = logosmall;
-
 export const Navbar = ({ darkMode }: { darkMode?: boolean }) => {
+  const [opened, { toggle }] = useDisclosure();
   const isNotMobile = useMediaQuery(mediaQueries.mobile);
   const navRef = useRef<HTMLDivElement>(null);
   const t = useTranslations();
@@ -77,7 +77,7 @@ export const Navbar = ({ darkMode }: { darkMode?: boolean }) => {
       start: "top top",
       end: 99999,
       onUpdate: (self) => {
-        if (!nav) return;
+        if (!nav || opened) return;
         if (self.scroll() > 10) {
           nav.classList.add(s.scrolled);
         } else if (!darkMode) {
@@ -89,22 +89,39 @@ export const Navbar = ({ darkMode }: { darkMode?: boolean }) => {
     return () => {
       ScrollTrigger.getAll().forEach((t) => t.kill());
     };
-  }, [darkMode]);
+  }, [darkMode, opened]);
 
   return (
-    <nav ref={navRef} className={cn(s.nav, [darkMode && s.scrolled])}>
+    <nav
+      ref={navRef}
+      className={cn(s.nav, [(darkMode || opened) && s.scrolled])}
+    >
       <NavContainer>
         <NavElement>
-          <Flex visibleFrom="md" component={Link} href={"/"} justify={"flex-start"}>
-            <Image src={LOGO_URL} alt="Logo" height={30}  />
-          </Flex>
-          <Flex hiddenFrom="md" component={Link} href={"/"} justify={"flex-start"}>
-            <Image src={LOGOSM_URL} alt="Logo" height={30}  />
+          <Flex
+            component={Link}
+            href={"/"}
+            justify={"flex-start"}
+          >
+            <Image
+              src={Logo}
+              alt="Logo"
+              width={200}
+              height={180}
+            />
           </Flex>
           {isNotMobile ? (
-            <DesktopNavList navbarRoutes={navbarRoutes} contactLabel={t("navbar_btn")} />
+            <DesktopNavList
+              navbarRoutes={navbarRoutes}
+              contactLabel={t("navbar_btn")}
+            />
           ) : (
-            <MobileNavList navbarRoutes={navbarRoutes} contactLabel={t("navbar_btn")} />
+            <MobileNavList
+              opened={opened}
+              toggle={toggle}
+              navbarRoutes={navbarRoutes}
+              contactLabel={t("navbar_btn")}
+            />
           )}
         </NavElement>
 
@@ -116,7 +133,13 @@ export const Navbar = ({ darkMode }: { darkMode?: boolean }) => {
   );
 };
 
-const DesktopNavList = ({ navbarRoutes, contactLabel }: { navbarRoutes: NavbarRoute[], contactLabel: string, }) => (
+const DesktopNavList = ({
+  navbarRoutes,
+  contactLabel,
+}: {
+  navbarRoutes: NavbarRoute[];
+  contactLabel: string;
+}) => (
   <NavList>
     <NavItems navbarRoutes={navbarRoutes} />
     <LanguageSwitcher />
@@ -131,13 +154,25 @@ const scaleY = {
   transitionProperty: "transform, opacity",
 };
 
-const MobileNavList = ({ navbarRoutes, contactLabel }: { navbarRoutes: NavbarRoute[], contactLabel: string, }) => {
-  const [opened, { toggle }] = useDisclosure();
-
+const MobileNavList = ({
+  navbarRoutes,
+  contactLabel,
+  opened,
+  toggle,
+}: {
+  navbarRoutes: NavbarRoute[];
+  contactLabel: string;
+  opened: boolean;
+  toggle: () => void;
+}) => {
   return (
     <NavList gap={"sm"}>
-      <ContactBtn  label={contactLabel} />
-      <Burger opened={opened} onClick={toggle} color="white" />
+      <ContactBtn label={contactLabel} />
+      <Burger
+        opened={opened}
+        onClick={toggle}
+        color="white"
+      />
       <Transition
         mounted={opened}
         transition={scaleY}
@@ -146,7 +181,10 @@ const MobileNavList = ({ navbarRoutes, contactLabel }: { navbarRoutes: NavbarRou
         keepMounted
       >
         {(transitionStyle) => (
-          <NavbarDropdown style={{ ...transitionStyle, zIndex: 1 }} bg={"#374B47"}>
+          <NavbarDropdown
+            style={{ ...transitionStyle, zIndex: 1 }}
+            className={s.dropdown}
+          >
             <NavList direction={"column"}>
               <NavItems navbarRoutes={navbarRoutes} />
               <LanguageSwitcher />
@@ -160,12 +198,15 @@ const MobileNavList = ({ navbarRoutes, contactLabel }: { navbarRoutes: NavbarRou
 
 const NavItems = ({ navbarRoutes }: { navbarRoutes: NavbarRoute[] }) =>
   navbarRoutes.map((item) => (
-    <BaseLink key={item.label} href={item.href}>
+    <BaseLink
+      key={item.label}
+      href={item.href}
+    >
       {item.label}
     </BaseLink>
   ));
 
-const ContactBtn =  ({ label }: { label: string }) => (
+const ContactBtn = ({ label }: { label: string }) => (
   <BtnBasic
     component={BaseLink}
     href="/contact"
@@ -173,7 +214,7 @@ const ContactBtn =  ({ label }: { label: string }) => (
     color="#fff"
     visibleFrom="md"
   >
-     {label}
+    {label}
   </BtnBasic>
 );
 
@@ -202,5 +243,5 @@ const NavbarDropdown = Paper.withProps({
   left: 0,
   right: 0,
   bdrs: "0",
-  bg: "transparent",
+  // bg: "transparent",
 });

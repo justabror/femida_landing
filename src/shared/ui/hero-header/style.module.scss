@@ -17,6 +17,11 @@
   transition: opacity 1s ease;
 }
 
+@media screen and (max-width: 768px) {
+  .heroBg {
+    background-position-x: 70%;
+  }
+}
 .heroTextContainer {
   position: relative;
   z-index: 1;

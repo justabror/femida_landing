@@ -1,9 +1,7 @@
 import { Box, Flex, Image, Text } from "@mantine/core";
-import { IconPlayerPlayFilled } from "@tabler/icons-react";
 
-import { BtnBasic } from "../btn-basic/ui";
+import { AwesomeVector } from "../awesome-vector";
 import { BaseLink } from "../link";
-import s from "./style.module.scss";
 
 type SplitSectionProps = {
   title: string;
@@ -23,7 +21,6 @@ export const SplitSection = ({
   description,
   imageSrc,
   imagePosition = "right",
-  showButton = false,
 }: SplitSectionProps) => {
   const isImageLeft = imagePosition === "left";
 
@@ -57,13 +54,10 @@ export const SplitSection = ({
             gap={"4px"}
             align={"center"}
           >
-            <Image
-              src={
-                "https://beratung.vamtam.com/wp-content/uploads/2023/06/fav-icon-150x150.png"
-              }
-              alt={""}
+            <AwesomeVector
+              pos={"relative"}
               h={18}
-              w={22}
+              w={25}
             />
             <Text>{description}</Text>
           </Flex>
@@ -98,7 +92,7 @@ export const SplitSection = ({
           align={"center"}
           gap={20}
         >
-          {showButton && (
+          {/* {showButton && (
             <BtnBasic
               size="md"
               variant="outline"
@@ -106,9 +100,14 @@ export const SplitSection = ({
             >
               <IconPlayerPlayFilled />
             </BtnBasic>
-          )}
+          )} */}
 
-          <BaseLink style={{ color: "#161616" }}>{linkTitle}</BaseLink>
+          <BaseLink
+            href="/contact"
+            style={{ color: "#161616" }}
+          >
+            {linkTitle}
+          </BaseLink>
         </Flex>
       </Flex>
 

@@ -347,6 +347,7 @@
     "placeholderTopic": "Введите сюда",
     "labelMessage": "Сообщение",
     "placeholderMessage": "Пишите сюда",
-    "buttonSend": "Отправить"
+    "buttonSend": "Отправить",
+    "success_message": "Спасибо! Ваше сообщение успешно отправлено."
   }
 }

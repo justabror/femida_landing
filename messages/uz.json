@@ -347,6 +347,7 @@
     "placeholderTopic": "Bu yerga yozing",
     "labelMessage": "Xabar",
     "placeholderMessage": "Bu yerga yozing",
-    "buttonSend": "Yuborish"
+    "buttonSend": "Yuborish",
+    "success_message": "Rahmat! Xabaringiz muvaffaqiyatli yuborildi."
   }
 }

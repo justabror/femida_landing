@@ -1,16 +1,16 @@
 import { createTheme, MantineColorsTuple } from "@mantine/core";
 
 const darkMintGreenSchema: MantineColorsTuple = [
-  "#effbf3",
-  "#def4e5",
-  "#b8e8c8",
-  "#8fdca9",
-  "#6dd28e",
-  "#59cc7d",
-  "#4dc974",
-  "#3eb162",
-  "#349e56",
-  "#1e6f3a",
+  "#f4f5f6",
+  "#e8e8e8",
+  "#cecece",
+  "#b3b3b3",
+  "#9a9d9e",
+  "#8a8f91",
+  "#80888b",
+  "#6d7578",
+  "#5f686c",
+  "#445055",
 ];
 
 export const theme = createTheme({

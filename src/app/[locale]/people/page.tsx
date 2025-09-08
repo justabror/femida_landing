@@ -4,6 +4,7 @@ import { Box, Container, Flex, Image, Text } from "@mantine/core";
 
 import { useTranslations } from "next-intl";
 
+import { CompanyStatistics } from "@/entities/company-statistics";
 import List from "@/entities/people";
 import { Link } from "@/i18n/navigation";
 import s from "@/pages/people/style.module.scss";
@@ -14,16 +15,7 @@ import {
   OtherHeader,
   OtherSplitter,
 } from "@/shared/ui";
-
-type Highlight = {
-  number: string;
-};
-
-const highlightsStatic: Highlight[] = [
-  { number: "100+" },
-  { number: "2+" },
-  { number: "100%" },
-];
+import { AwesomeVector } from "@/shared/ui/awesome-vector";
 
 const PeoplePage = () => {
   const t = useTranslations("peoplePage");
@@ -45,20 +37,6 @@ const PeoplePage = () => {
 
       <Box pos="relative">
         <OtherSplitter backgroundUrl="https://beratung.vamtam.com/wp-content/uploads/2023/07/pexels-kindel-media-7688339.jpg" />
-        <Flex
-          pos="absolute"
-          style={{ backgroundColor: "#fff" }}
-          p="30px 75px"
-          right={200}
-          bottom={120}
-          visibleFrom="md"
-        >
-          <Image
-            src="https://beratung.vamtam.com/wp-content/uploads/2023/07/BPTW-logo-ENG.svg"
-            w={250}
-            alt="Best Place to Work"
-          />
-        </Flex>
       </Box>
 
       <Container size="xl">
@@ -81,7 +59,10 @@ const PeoplePage = () => {
             >
               {t("values.title")}
             </Text>
-            <Link href={"/about"} style={{width: "fit-content"}}>
+            <Link
+              href={"/about"}
+              style={{ width: "fit-content" }}
+            >
               <BtnBasic
                 size="xl"
                 maw={250}
@@ -90,7 +71,10 @@ const PeoplePage = () => {
                 {t("values.btn")}
               </BtnBasic>
             </Link>
-            <Link href={"/about"}  style={{width: "fit-content"}}>
+            <Link
+              href={"/about"}
+              style={{ width: "fit-content" }}
+            >
               <BtnBasic
                 size="md"
                 maw={250}
@@ -136,63 +120,19 @@ const PeoplePage = () => {
             justify="flex-start"
           >
             <Flex
-              className={s.aboutTitle}
               gap="4px"
               align="center"
             >
-              <Image
-                src="https://beratung.vamtam.com/wp-content/uploads/2023/06/fav-icon-150x150.png"
+              <AwesomeVector
+                pos={"relative"}
                 h={18}
-                alt="footer_icon"
+                w={25}
               />
               <Text>{t("opportunities.label")}</Text>
             </Flex>
           </Flex>
 
-          <Flex
-            direction={{ base: "column", md: "row" }}
-            align="center"
-            justify="center"
-            gap={60}
-            pr={{ base: 0, md: 100 }}
-            pl={{ base: 0, md: 100 }}
-          >
-            {highlightsStatic.map((item, index) => (
-              <Flex
-                key={index}
-                direction="column"
-                gap={10}
-                maw={295}
-              >
-                <Text
-                  ff="Geologica"
-                  fz={{ base: 52, md: 70 }}
-                  fw={700}
-                  lh="1em"
-                  lts="-2.8px"
-                  style={{ color: "#8FD299" }}
-                >
-                  {item.number}
-                </Text>
-                <Text
-                  ff="Geologica"
-                  fz={16}
-                  fw={500}
-                  lh="1.5em"
-                  lts="-.3px"
-                >
-                  {t(`opportunities.items.${index}.title`)}
-                </Text>
-                <Text
-                  fz={14}
-                  lh="1.4em"
-                  style={{ color: "#5F6567" }}
-                >
-                  {t(`opportunities.items.${index}.description`)}
-                </Text>
-              </Flex>
-            ))}
-          </Flex>
+          <CompanyStatistics />
         </Flex>
       </Container>
 

@@ -1,20 +1,33 @@
 "use client";
 
 import { Box, Flex, Text } from "@mantine/core";
+import { useMediaQuery } from "@mantine/hooks";
+
+import { useTranslations } from "next-intl";
+
+import { mediaQueries } from "@/shared/lib/constants";
+
 import { BtnBasic } from "../btn-basic/ui";
 import { BaseLink } from "../link";
-import { useTranslations } from "next-intl";
 import s from "./styles.module.scss";
 
 export const TeamBanner = () => {
   const t = useTranslations("teamBanner");
+  const isTablet = useMediaQuery(mediaQueries.tablet);
 
   return (
-    <Box component="section" mt="7.5rem" pos="relative">
+    <Box
+      component="section"
+      mt="7.5rem"
+      pos="relative"
+    >
       <Box className={s.overly} />
-      <Box h={720} className={s.banner}>
+      <Box
+        h={720}
+        className={s.banner}
+      >
         <Flex
-          w="45%"
+          w={isTablet ? "45%" : "80%"}
           mx="2rem"
           direction="column"
           gap="1rem"
@@ -23,11 +36,16 @@ export const TeamBanner = () => {
           style={{ zIndex: 2 }}
           mb="3.438rem"
         >
-          <Text fz="1.25rem" lh="1.625rem" fw={400} c="white">
+          <Text
+            fz="1.25rem"
+            lh="1.625rem"
+            fw={400}
+            c="white"
+          >
             {t("subtitle")}
           </Text>
           <Text
-            fz={{ base: "42px", md: "4.375rem" }}
+            fz={{ base: "32px", md: "4.375rem" }}
             lh={{ base: "3.5rem", md: "4.375rem" }}
             fw={400}
             c="white"
