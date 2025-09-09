@@ -174,7 +174,7 @@ const Review = ({ url, name, review }: ReviewProps) => (
           <IconQuote
             width="100%"
             height="100%"
-            color="#374B47"
+            color="#445055"
           />
         </ThemeIcon>
         <Text
