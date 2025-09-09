@@ -1,6 +1,4 @@
-"use client";
-
-import { Box, Container, Flex, Image, Text } from "@mantine/core";
+import { Box, Container, Flex, Text } from "@mantine/core";
 
 import { useTranslations } from "next-intl";
 
@@ -8,6 +6,7 @@ import { CompanyStatistics } from "@/entities/company-statistics";
 import List from "@/entities/people";
 import { Link } from "@/i18n/navigation";
 import s from "@/pages/people/style.module.scss";
+import { TreeAngle } from "@/shared/assets/treeangle";
 import {
   BtnBasic,
   Footer,
@@ -36,7 +35,7 @@ const PeoplePage = () => {
       </Box>
 
       <Box pos="relative">
-        <OtherSplitter backgroundUrl="https://beratung.vamtam.com/wp-content/uploads/2023/07/pexels-kindel-media-7688339.jpg" />
+        <OtherSplitter backgroundUrl="https://i.ibb.co/VcV9T3rS/group-people-working-out-business-plan-office.jpg" />
       </Box>
 
       <Container size="xl">
@@ -167,12 +166,7 @@ const PeoplePage = () => {
               {t("management.description")}
             </Text>
           </Flex>
-          <Image
-            src="https://beratung.vamtam.com/wp-content/uploads/2023/06/illustration-2.svg"
-            alt="service illustration"
-            w={160}
-            visibleFrom="md"
-          />
+          <TreeAngle />
         </Flex>
       </Container>
 

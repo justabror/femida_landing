@@ -64,7 +64,7 @@ export const ShowServices = () => {
     {
       type: t("financeType"),
       title: t("financeTitle"),
-      bg: "#cecece",
+      bg: "#bedff2",
       services: [
         {
           icon: <IconChartBar />,
@@ -86,7 +86,7 @@ export const ShowServices = () => {
     {
       type: t("insuranceType"),
       title: t("insuranceTitle"),
-      bg: "#b3b3b3",
+      bg: "#a6d2ea",
       services: [
         {
           icon: <IconArmchair2 />,
@@ -219,7 +219,7 @@ const ServiceText = Text.withProps({
   fw: 600,
   fz: "0.875rem",
   lh: "1.25rem",
-  c: "rgba(0, 0, 0, 0.5)",
+  c: "#445055",
 });
 
 const ServiceTitle = Text.withProps({
@@ -227,7 +227,7 @@ const ServiceTitle = Text.withProps({
   fw: 700,
   fz: "4.375rem",
   lh: "4.375rem",
-  c: "rgba(0, 0, 0, 0.5)",
+  c: "#445055",
   mb: "1.25rem",
 });
 

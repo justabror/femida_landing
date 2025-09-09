@@ -3,8 +3,6 @@ import {
   Container,
   Divider,
   Flex,
-  Image,
-  Paper,
   Space,
   Text,
 } from "@mantine/core";
@@ -79,49 +77,12 @@ const ContactSection = async () => {
       </Box>
       <Space h="1rem" />
 
-      <Flex visibleFrom="md">
+      <Flex direction="column">
         <Flex
           direction="column"
           gap="0.75rem"
           flex={1}
         >
-          <Image
-            src="https://beratung.vamtam.com/wp-content/uploads/2023/07/GettyImages-1138996754-1024x686.jpg"
-            alt="Professional legal consultation - Femida law firm office"
-          />
-          <Text
-            fz="0.875rem"
-            fw={500}
-            lh="1.313rem"
-            c="rgb(95, 101, 103)"
-          >
-            {t("contactLabel")}
-          </Text>
-          <Divider my="md" />
-          <Infos />
-        </Flex>
-        <Paper
-          flex={1}
-          bdrs={0}
-          px="1rem"
-        >
-          <ContactForm />
-        </Paper>
-      </Flex>
-
-      <Flex
-        direction="column"
-        hiddenFrom="md"
-      >
-        <Flex
-          direction="column"
-          gap="0.75rem"
-          flex={1}
-        >
-          <Image
-            src="https://beratung.vamtam.com/wp-content/uploads/2023/07/GettyImages-1138996754-1024x686.jpg"
-            alt="Professional legal consultation - Femida law firm office"
-          />
           <Divider my="md" />
           <ContactForm />
         </Flex>

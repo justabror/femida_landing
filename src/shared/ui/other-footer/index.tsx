@@ -25,7 +25,7 @@ export const Footer = () => {
   useGSAP(
     () => {
       gsap.fromTo(
-        textBoxRef.current,
+        textBoxRef.current, 
         { y: 50, opacity: 0 },
         {
           y: 0,
@@ -123,13 +123,13 @@ export const Footer = () => {
               gap={10}
             >
               <Text
-                className={s.titleText}
                 ff={"Geologica"}
                 fz={30}
                 fw={500}
                 fs={"normal"}
                 lh={"1.3em"}
                 lts={"-1px"}
+                c={"#fff"}
               >
                 {t("title")}
               </Text>

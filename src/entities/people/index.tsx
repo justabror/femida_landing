@@ -1,3 +1,5 @@
+"use client";
+
 import { Box, Container, SimpleGrid } from "@mantine/core";
 
 import { useTranslations, useLocale } from "next-intl";
