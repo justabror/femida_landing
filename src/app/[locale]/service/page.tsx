@@ -1,4 +1,4 @@
-import { Box, Container, Flex, Image, SimpleGrid, Text } from "@mantine/core";
+import { Box, Container, Flex, SimpleGrid, Text } from "@mantine/core";
 
 import { Metadata } from "next";
 import { useTranslations } from "next-intl";
