@@ -15,7 +15,7 @@ body {
 
 .clipped-image {
   clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
-  background-image: url("./../../public/assets/service/6.jpg");
+  background-image: url("./../../public/assets/service/6.webp");
   background-size: cover;
   background-position-y: 35%;
 }
