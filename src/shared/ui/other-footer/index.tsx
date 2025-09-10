@@ -1,15 +1,16 @@
 "use client";
 
-import { useGSAP } from "@gsap/react";
 import { Container, Flex, Text } from "@mantine/core";
 import { IconCaretRightFilled, IconPhoneFilled } from "@tabler/icons-react";
 
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 
 import { useTranslations } from "next-intl";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+import { usePathname } from "@/i18n/navigation";
 
 import { AwesomeVector } from "../awesome-vector";
 import { BtnBasic } from "../btn-basic/ui";
@@ -21,11 +22,14 @@ gsap.registerPlugin(ScrollTrigger);
 export const Footer = () => {
   const t = useTranslations("footer"); // подключаем переводы
   const textBoxRef = useRef<HTMLDivElement | null>(null);
+  const pathname = usePathname();
 
-  useGSAP(
-    () => {
+  useEffect(() => {
+    if (!textBoxRef.current) return;
+
+    const ctx = gsap.context(() => {
       gsap.fromTo(
-        textBoxRef.current, 
+        textBoxRef.current,
         { y: 50, opacity: 0 },
         {
           y: 0,
@@ -37,13 +41,19 @@ export const Footer = () => {
             start: "top 90%",
             end: "bottom 20%",
             toggleActions: "play reverse play reverse",
+            invalidateOnRefresh: true,
           },
         },
       );
-    },
-    { scope: textBoxRef },
-  );
+    }, textBoxRef);
 
+    ScrollTrigger.refresh();
+
+    return () => {
+      ctx.revert();
+    };
+  }, [pathname]);
+  
   return (
     <Flex
       mt={"65px"}

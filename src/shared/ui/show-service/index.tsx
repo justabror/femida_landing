@@ -1,6 +1,5 @@
 "use client";
 
-import { useGSAP } from "@gsap/react";
 import {
   Box,
   Card,
@@ -13,7 +12,7 @@ import {
 } from "@mantine/core";
 import { IconArmchair2, IconBrain, IconChartBar } from "@tabler/icons-react";
 
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 
 import { useTranslations } from "next-intl";
 
@@ -21,43 +20,64 @@ import cn from "classnames";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+import { usePathname } from "@/i18n/navigation";
+
 gsap.registerPlugin(ScrollTrigger);
 
 export const ShowServices = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const t = useTranslations("showServices");
+  const pathname = usePathname();
 
-  useGSAP(
-    () => {
-      const panels = gsap.utils.toArray<HTMLElement>(".scroll-panel");
+  useEffect(() => {
+    if (!containerRef.current) return;
+
+    const unique = `show-services-${pathname}-${Date.now()}`;
+
+    const ctx = gsap.context(() => {
+      const root = containerRef.current!;
+      const nodeList = root.querySelectorAll<HTMLElement>(".scroll-panel");
+      const panels = Array.from(nodeList);
+
+      if (!panels.length) return;
 
       panels.forEach((panel, index) => {
         ScrollTrigger.create({
+          id: `panel-${index}-${unique}`,
           trigger: panel,
           start: "top top",
           end: () => `+=${panel.offsetHeight}`,
           pin: true,
           pinSpacing: false,
           scrub: true,
-          id: `panel-${index}`,
+          invalidateOnRefresh: true,
         });
       });
 
-      ScrollTrigger.create({
-        trigger: panels[0],
-        start: "top top",
-        endTrigger: panels[panels.length - 1],
-        end: "bottom bottom",
-        snap: 1 / (panels.length - 1),
-        id: "panel-snap",
-      });
+      if (panels.length > 1) {
+        ScrollTrigger.create({
+          id: `panel-snap-${unique}`,
+          trigger: panels[0],
+          start: "top top",
+          endTrigger: panels[panels.length - 1],
+          end: "bottom bottom",
+          snap: 1 / (panels.length - 1),
+          invalidateOnRefresh: true,
+        });
+      }
 
-      return () => {
-        ScrollTrigger.getAll().forEach((t) => t.kill());
-      };
-    },
-    { scope: containerRef },
-  );
+      requestAnimationFrame(() => {
+        ScrollTrigger.refresh();
+      });
+    }, containerRef);
+
+    return () => {
+      ctx.revert();
+      ScrollTrigger.getAll()
+        .filter((t) => t.vars.id && t.vars.id.toString().includes(unique))
+        .forEach((t) => t.kill());
+    };
+  }, [pathname]);
 
   // Каждому section присвоен уникальный набор сервисов
   const sections = [
@@ -110,7 +130,7 @@ export const ShowServices = () => {
   return (
     <Box
       ref={containerRef}
-      mb={{ base: "90vh" }}
+      mb={{ base: "140vh", xs: "100vh", md: "130vh" }}
     >
       <Container
         size="xl"
