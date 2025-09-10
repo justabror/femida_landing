@@ -13,11 +13,11 @@ import { BtnBasic } from "@/shared/ui";
 import s from "./style.module.scss";
 
 const images = [
-  "./assets/hero/5.png",
-  "./assets/hero/2.png",
-  "./assets/hero/3.png",
-  "./assets/hero/4.png",
-  "./assets/hero/1.png",
+  "/assets/hero/5.png",
+  "/assets/hero/2.png",
+  "/assets/hero/3.png",
+  "/assets/hero/4.png",
+  "/assets/hero/1.png",
 ];
 
 export const HeroHeader = () => {
