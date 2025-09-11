@@ -18,7 +18,7 @@ export const OtherSplitter = ({
   backgroundUrl,
   backgroundUrlMobile,
 }: OtherSplitterProps) => {
-  const isMobile = useMediaQuery("(max-width: 426px)");
+  const isMobile = useMediaQuery("(max-width: 500px)");
 
   const bg =
     isMobile && backgroundUrlMobile ? backgroundUrlMobile : backgroundUrl;
