@@ -2,80 +2,80 @@
 
 import { Box, Container, Flex, Text } from "@mantine/core";
 
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { useTranslations } from "next-intl";
 
-// import gsap from "gsap";
+import gsap from "gsap";
 
 import { BtnBasic } from "@/shared/ui";
 
 import s from "./style.module.scss";
 
-// const imagesDesktop = [
-//   "/assets/hero/1.webp",
-//   "/assets/hero/2.webp",
-//   "/assets/hero/3.webp",
-//   "/assets/hero/4.webp",
-//   "/assets/hero/5.webp",
-// ];
+const imagesDesktop = [
+  "/assets/hero/1.webp",
+  "/assets/hero/2.webp",
+  "/assets/hero/3.webp",
+  "/assets/hero/4.webp",
+  "/assets/hero/5.webp",
+];
 
-// const imagesMobile = [
-//   "/assets/hero/mobile/1.webp",
-//   "/assets/hero/mobile/2.webp",
-//   "/assets/hero/mobile/3.webp",
-//   "/assets/hero/mobile/4.webp",
-//   "/assets/hero/mobile/5.webp",
-// ];
+const imagesMobile = [
+  "/assets/hero/mobile/1.webp",
+  "/assets/hero/mobile/2.webp",
+  "/assets/hero/mobile/3.webp",
+  "/assets/hero/mobile/4.webp",
+  "/assets/hero/mobile/5.webp",
+];
 
-// function useIsMobile(breakpoint = 500) {
-//   const [isMobile, setIsMobile] = useState<boolean>(false);
+function useIsMobile(breakpoint = 500) {
+  const [isMobile, setIsMobile] = useState<boolean>(false);
 
-//   useEffect(() => {
-//     if (typeof window === "undefined") return;
+  useEffect(() => {
+    if (typeof window === "undefined") return;
 
-//     const media = window.matchMedia(`(max-width: ${breakpoint}px)`);
-//     const listener = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    const media = window.matchMedia(`(max-width: ${breakpoint}px)`);
+    const listener = (e: MediaQueryListEvent) => setIsMobile(e.matches);
 
-//     setIsMobile(media.matches);
-//     media.addEventListener("change", listener);
+    setIsMobile(media.matches);
+    media.addEventListener("change", listener);
 
-//     return () => media.removeEventListener("change", listener);
-//   }, [breakpoint]);
+    return () => media.removeEventListener("change", listener);
+  }, [breakpoint]);
 
-//   return isMobile;
-// }
+  return isMobile;
+}
 
 export const HeroHeader = () => {
   const t = useTranslations();
 
-  // const [bgIndex, setBgIndex] = useState(0);
+  const [bgIndex, setBgIndex] = useState(0);
   const bgRefs = useRef<HTMLDivElement[]>([]);
-  // const isMobile = useIsMobile();
+  const isMobile = useIsMobile();
 
-  // const images = imagesMobile;
+  const images = isMobile ? imagesMobile : imagesDesktop;
 
-  // useEffect(() => {
-  //   const bgInterval = setInterval(
-  //     () => {
-  //       const current = bgIndex % images.length;
-  //       const next = (bgIndex + 1) % images.length;
+  useEffect(() => {
+    const bgInterval = setInterval(
+      () => {
+        const current = bgIndex % images.length;
+        const next = (bgIndex + 1) % images.length;
 
-  //       const currentEl = bgRefs.current[current];
-  //       const nextEl = bgRefs.current[next];
+        const currentEl = bgRefs.current[current];
+        const nextEl = bgRefs.current[next];
 
-  //       if (currentEl && nextEl) {
-  //         gsap.to(currentEl, { opacity: 0, duration: 1 });
-  //         gsap.set(nextEl, { zIndex: 1 });
-  //         gsap.fromTo(nextEl, { opacity: 0 }, { opacity: 1, duration: 1 });
-  //         setBgIndex(next);
-  //       }
-  //     },
-  //     isMobile ? 5000 : 10000,
-  //   );
+        if (currentEl && nextEl) {
+          gsap.to(currentEl, { opacity: 0, duration: 1 });
+          gsap.set(nextEl, { zIndex: 1 });
+          gsap.fromTo(nextEl, { opacity: 0 }, { opacity: 1, duration: 1 });
+          setBgIndex(next);
+        }
+      },
+      isMobile ? 5000 : 10000,
+    );
 
-  //   return () => clearInterval(bgInterval);
-  // }, [bgIndex, isMobile, images]);
+    return () => clearInterval(bgInterval);
+  }, [bgIndex, isMobile, images]);
 
   return (
     <Box
