@@ -133,7 +133,10 @@ const ServicePage = () => {
         </SimpleGrid>
       </Container>
 
-      <OtherSplitter backgroundUrl="https://beratung.vamtam.com/wp-content/uploads/2023/07/pexels-vlada-karpovich-7433853.jpg" />
+      <OtherSplitter
+        backgroundUrlMobile="/assets/service/mobile/10.webp"
+        backgroundUrl="https://beratung.vamtam.com/wp-content/uploads/2023/07/pexels-vlada-karpovich-7433853.jpg"
+      />
 
       <Box style={{ borderBottom: "1px solid #00000026" }}>
         <Container

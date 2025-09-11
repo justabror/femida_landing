@@ -1,6 +1,7 @@
 "use client";
 
 import { Box, Container, Flex, Text } from "@mantine/core";
+import { useMediaQuery } from "@mantine/hooks";
 
 import { useEffect, useMemo, useRef, useState } from "react";
 
@@ -12,12 +13,20 @@ import { BtnBasic } from "@/shared/ui";
 
 import s from "./style.module.scss";
 
-const images = [
+const imagesDesktop = [
   "/assets/hero/5.webp",
   "/assets/hero/4.webp",
   "/assets/hero/3.webp",
   "/assets/hero/2.webp",
   "/assets/hero/1.webp",
+];
+
+const imagesMobile = [
+  "/assets/hero/mobile/1.webp",
+  "/assets/hero/mobile/2.webp",
+  "/assets/hero/mobile/3.webp",
+  "/assets/hero/mobile/4.webp",
+  "/assets/hero/mobile/5.webp",
 ];
 
 export const HeroHeader = () => {
@@ -26,6 +35,7 @@ export const HeroHeader = () => {
   // const [letters, setLetters] = useState<string[]>([]);
   const letterRefs = useRef<HTMLSpanElement[]>([]);
   const bgRefs = useRef<HTMLDivElement[]>([]);
+  const isMobile = useMediaQuery("(max-width: 426px)");
 
   const t = useTranslations();
 
@@ -40,10 +50,10 @@ export const HeroHeader = () => {
     [t],
   );
 
+  const images = isMobile ? imagesMobile : imagesDesktop;
+
   useEffect(() => {
     const current = headlines[index].key.padEnd(35, " ").split("");
-    // setLetters(current);
-
     current.forEach((char, i) => {
       const el = letterRefs.current[i];
       if (el) {
@@ -81,26 +91,29 @@ export const HeroHeader = () => {
     }, 10000);
 
     return () => clearInterval(interval);
-  }, [index, headlines, letterRefs]);
+  }, [index, headlines]);
 
   useEffect(() => {
-    const bgInterval = setInterval(() => {
-      const current = bgIndex % images.length;
-      const next = (bgIndex + 1) % images.length;
+    const bgInterval = setInterval(
+      () => {
+        const current = bgIndex % images.length;
+        const next = (bgIndex + 1) % images.length;
 
-      const currentEl = bgRefs.current[current];
-      const nextEl = bgRefs.current[next];
+        const currentEl = bgRefs.current[current];
+        const nextEl = bgRefs.current[next];
 
-      if (currentEl && nextEl) {
-        gsap.to(currentEl, { opacity: 0, duration: 1 });
-        gsap.set(nextEl, { zIndex: 1 });
-        gsap.fromTo(nextEl, { opacity: 0 }, { opacity: 1, duration: 1 });
-        setBgIndex(next);
-      }
-    }, 10000);
+        if (currentEl && nextEl) {
+          gsap.to(currentEl, { opacity: 0, duration: 1 });
+          gsap.set(nextEl, { zIndex: 1 });
+          gsap.fromTo(nextEl, { opacity: 0 }, { opacity: 1, duration: 1 });
+          setBgIndex(next);
+        }
+      },
+      isMobile ? 5000 : 10000,
+    );
 
     return () => clearInterval(bgInterval);
-  }, [bgIndex, bgRefs]);
+  }, [bgIndex, isMobile, images]);
 
   return (
     <Box
