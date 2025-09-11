@@ -1,9 +1,8 @@
 "use client";
 
 import { Box, Container, Flex, Text } from "@mantine/core";
-import { useMediaQuery } from "@mantine/hooks";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { useTranslations } from "next-intl";
 
@@ -14,11 +13,11 @@ import { BtnBasic } from "@/shared/ui";
 import s from "./style.module.scss";
 
 const imagesDesktop = [
-  "/assets/hero/5.webp",
-  "/assets/hero/4.webp",
-  "/assets/hero/3.webp",
-  "/assets/hero/2.webp",
   "/assets/hero/1.webp",
+  "/assets/hero/2.webp",
+  "/assets/hero/3.webp",
+  "/assets/hero/4.webp",
+  "/assets/hero/5.webp",
 ];
 
 const imagesMobile = [
@@ -29,69 +28,32 @@ const imagesMobile = [
   "/assets/hero/mobile/5.webp",
 ];
 
-export const HeroHeader = () => {
-  const [index, setIndex] = useState(0);
-  const [bgIndex, setBgIndex] = useState(0);
-  // const [letters, setLetters] = useState<string[]>([]);
-  const letterRefs = useRef<HTMLSpanElement[]>([]);
-  const bgRefs = useRef<HTMLDivElement[]>([]);
-  const isMobile = useMediaQuery("(max-width: 426px)");
+function useIsMobile(breakpoint = 500) {
+  const [isMobile, setIsMobile] = useState<boolean>(false);
 
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const media = window.matchMedia(`(max-width: ${breakpoint}px)`);
+    const listener = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+
+    setIsMobile(media.matches);
+    media.addEventListener("change", listener);
+
+    return () => media.removeEventListener("change", listener);
+  }, [breakpoint]);
+
+  return isMobile;
+}
+
+export const HeroHeader = () => {
   const t = useTranslations();
 
-  const headlines = useMemo(
-    () => [
-      { id: 1, key: t("headlines_planning") },
-      { id: 2, key: t("headlines_solutions") },
-      { id: 3, key: t("headlines_technologies") },
-      { id: 4, key: t("headlines_strategy") },
-      { id: 5, key: t("headlines_advice") },
-    ],
-    [t],
-  );
+  const [bgIndex, setBgIndex] = useState(0);
+  const bgRefs = useRef<HTMLDivElement[]>([]);
+  const isMobile = useIsMobile();
 
   const images = isMobile ? imagesMobile : imagesDesktop;
-
-  useEffect(() => {
-    const current = headlines[index].key.padEnd(35, " ").split("");
-    current.forEach((char, i) => {
-      const el = letterRefs.current[i];
-      if (el) {
-        el.textContent = char === " " ? "\u00A0" : char;
-      }
-    });
-  }, [headlines, index]);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const nextIndex = (index + 1) % headlines.length;
-      const next = headlines[nextIndex].key.padEnd(35, " ").split("");
-
-      next.forEach((nextChar: string, i: number) => {
-        const el = letterRefs.current[i];
-        if (!el) return;
-
-        gsap.to(el, {
-          rotateY: 90,
-          duration: 0.25,
-          ease: "power1.in",
-          delay: i * 0.06,
-          onComplete: () => {
-            el.textContent = nextChar === " " ? "\u00A0" : nextChar;
-            gsap.to(el, {
-              rotateY: 0,
-              duration: 0.25,
-              ease: "power1.out",
-            });
-          },
-        });
-      });
-
-      setIndex(nextIndex);
-    }, 10000);
-
-    return () => clearInterval(interval);
-  }, [index, headlines]);
 
   useEffect(() => {
     const bgInterval = setInterval(
@@ -134,7 +96,6 @@ export const HeroHeader = () => {
           }}
         />
       ))}
-
       <Container
         size="xl"
         className={s.heroTextContainer}
@@ -158,27 +119,6 @@ export const HeroHeader = () => {
             >
               {t("main_title")}
             </Text>
-            {/* <Group className={s.line}>
-              {Array(letters.length)
-                .fill("")
-                .map((_, i) => (
-                  <Text
-                    fz={{ base: "24px", md: "60px" }}
-                    fw={500}
-                    lh={"1.2em"}
-                    mb={"20px"}
-                    key={i}
-                    ref={(el) => {
-                      if (el) letterRefs.current[i] = el;
-                    }}
-                    classNames={{
-                      root: s.mtr,
-                    }}
-                  >
-                    {letters[i] ?? "\u00A0"}
-                  </Text>
-                ))}
-            </Group> */}
             <Text
               fz={{ base: "20px", sm: "24px", md: "36px" }}
               fw={700}

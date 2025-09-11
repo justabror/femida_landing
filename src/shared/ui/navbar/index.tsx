@@ -20,7 +20,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import { Link } from "@/i18n/navigation";
-import Logo from "@/shared/assets/logo.jpg";
+import Logo from "@/shared/assets/logo.webp";
 import { mediaQueries } from "@/shared/lib/constants";
 
 import { BtnBasic } from "../btn-basic/ui";
@@ -106,8 +106,7 @@ export const Navbar = ({ darkMode }: { darkMode?: boolean }) => {
             <Image
               src={Logo}
               alt="Logo"
-              width={200}
-              height={180}
+              height={60}
             />
           </Flex>
           {isNotMobile ? (

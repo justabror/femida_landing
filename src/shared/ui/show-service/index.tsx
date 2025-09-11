@@ -156,12 +156,18 @@ export const ShowServices = () => {
         </Text>
       </Container>
 
-      <MainServiceContainer>
+      <Container
+        fluid
+        m={0}
+      >
         {sections.map((section, i) => (
-          <ContentWrapper
+          <Paper
             className="scroll-panel"
             key={i}
             bg={`${section.bg}`}
+            bdrs={0}
+            shadow="none"
+            p="1rem 1.25rem 3.125rem"
           >
             <Box
               maw="1280px"
@@ -169,21 +175,36 @@ export const ShowServices = () => {
               pos="relative"
             >
               <Center visibleFrom="md">
-                <ServiceText>
+                <Text
+                  component="p"
+                  fw={600}
+                  fz="0.875rem"
+                  lh="1.25rem"
+                  c="#445055"
+                >
                   0{i + 1} {section.type}
-                </ServiceText>
+                </Text>
               </Center>
               <Flex justify={{ base: "center", md: "flex-start" }}>
-                <ServiceTitle
+                <Text
+                  component="h3"
+                  fw={700}
+                  lh={"4.375rem"}
+                  c={"#445055"}
+                  mb={"1.25rem"}
                   mt={{ base: "0", md: "250px" }}
                   pos={"relative"}
                   fz={{ base: "2.0rem", md: "4.375rem" }}
                   style={{ zIndex: 1000 }}
                 >
                   {section.title}
-                </ServiceTitle>
+                </Text>
               </Flex>
-              <CardWrapper>
+              <Flex
+                gap={1}
+                pos={"relative"}
+                style={{ zIndex: 1 }}
+              >
                 <Flex
                   justify={{ base: "center", md: "flex-start" }}
                   direction={{ base: "column", md: "row" }}
@@ -191,20 +212,45 @@ export const ShowServices = () => {
                   w={"100%"}
                 >
                   {section.services.map((service, index) => (
-                    <ServiceCard
+                    <Card
                       key={index}
                       p={{ base: "15px", md: "4.375rem 1.875rem 3.125rem" }}
                       maw={{ base: "100%", md: "25%" }}
+                      bg={"#fff"}
+                      bdrs={0}
                     >
                       <Flex direction="column">
-                        <CardIcon>{service.icon}</CardIcon>
-                        <CardTitle>{service.title}</CardTitle>
-                        <CardDescription>{service.description}</CardDescription>
+                        <Text
+                          component="span"
+                          w={"100%"}
+                          mb={"1rem"}
+                        >
+                          {service.icon}
+                        </Text>
+                        <Text
+                          component="h5"
+                          fz={"1.25rem"}
+                          fw={400}
+                          lh={"1.5rem"}
+                          c={"rgb(22, 22, 22)"}
+                          m={"0.875rem 0 1.25rem"}
+                        >
+                          {service.title}
+                        </Text>
+                        <Text
+                          component="p"
+                          fw={400}
+                          fz={"0.875rem"}
+                          lh={"1.25rem"}
+                          c={"rgb(95, 101, 103)"}
+                        >
+                          {service.description}
+                        </Text>
                       </Flex>
-                    </ServiceCard>
+                    </Card>
                   ))}
                 </Flex>
-              </CardWrapper>
+              </Flex>
               <Space h="xl" />
               <Box
                 pos="absolute"
@@ -215,72 +261,9 @@ export const ShowServices = () => {
                 className={cn("clipped-image", ["clipped-image-" + (i + 1)])}
               ></Box>
             </Box>
-          </ContentWrapper>
+          </Paper>
         ))}
-      </MainServiceContainer>
+      </Container>
     </Box>
   );
 };
-
-const MainServiceContainer = Container.withProps({
-  fluid: true,
-  m: 0,
-});
-
-const ContentWrapper = Paper.withProps({
-  bdrs: 0,
-  shadow: "none",
-  bg: "#E7E8DB",
-  p: "1rem 1.25rem 3.125rem",
-});
-
-const ServiceText = Text.withProps({
-  component: "p",
-  fw: 600,
-  fz: "0.875rem",
-  lh: "1.25rem",
-  c: "#445055",
-});
-
-const ServiceTitle = Text.withProps({
-  component: "h3",
-  fw: 700,
-  fz: "4.375rem",
-  lh: "4.375rem",
-  c: "#445055",
-  mb: "1.25rem",
-});
-
-const CardWrapper = Flex.withProps({
-  gap: "1px",
-  pos: "relative",
-  style: { zIndex: 1 },
-});
-
-const ServiceCard = Card.withProps({
-  bg: "#fff",
-  bdrs: "0",
-});
-
-const CardIcon = Text.withProps({
-  component: "span",
-  w: "100%",
-  mb: "1rem",
-});
-
-const CardTitle = Text.withProps({
-  component: "h5",
-  fz: "1.25rem",
-  fw: 400,
-  lh: "1.5rem",
-  c: "rgb(22, 22, 22)",
-  m: "0.875rem 0 1.25rem",
-});
-
-const CardDescription = Text.withProps({
-  component: "p",
-  fw: 400,
-  fz: "0.875rem",
-  lh: "1.25rem",
-  c: "rgb(95, 101, 103)",
-});

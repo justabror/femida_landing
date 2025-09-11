@@ -1,24 +1,18 @@
-import {
-  Box,
-  Container,
-  Divider,
-  Flex,
-  Space,
-  Text,
-} from "@mantine/core";
+"use client";
+
+import { Box, Container, Divider, Flex, Space, Text } from "@mantine/core";
 
 import { useTranslations } from "next-intl";
-import { getTranslations } from "next-intl/server";
 
 import { CompanyStatistics } from "@/entities/company-statistics";
 import { ContactForm } from "@/features/contact-form";
-import s from "@/pages/main/style.module.scss";
+import { Map } from "@/features/map";
 import {
   ClientReviews,
   Footer,
   GuidePrinciples,
-  HeroHeader,
   Navbar,
+  HeroHeader,
   ShowServices,
   SplitterBanner,
   TeamBanner,
@@ -29,7 +23,7 @@ const MainPage = () => {
   return (
     <Flex
       direction="column"
-      className={s.page}
+      pos={"relative"}
     >
       <Navbar />
       <HeroHeader />
@@ -46,8 +40,8 @@ const MainPage = () => {
   );
 };
 
-const ContactSection = async () => {
-  const t = await getTranslations("contactSection");
+const ContactSection = () => {
+  const t = useTranslations("contactSection");
 
   return (
     <Container
@@ -107,12 +101,7 @@ const ContactSection = async () => {
       </Flex>
 
       <Box mt="2rem">
-        <iframe
-          src="https://yandex.com/map-widget/v1/?um=constructor%3A1c7da8fdaae910abde1768b576613960106b5428df883e977ab5067f6716657b&amp;source=constructor"
-          width="100%"
-          height="399"
-          title="Femida Legal Services Location Map - Tashkent Office"
-        ></iframe>
+        <Map />
       </Box>
     </Container>
   );
