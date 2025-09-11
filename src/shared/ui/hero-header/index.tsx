@@ -82,7 +82,7 @@ export const HeroHeader = () => {
       className={s.heroWrapper}
       mih={{ base: "70vh", md: "100vh" }}
     >
-      {["/assets/hero/mobile/1.webp"].map((img, i) => (
+      {images.map((img, i) => (
         <Box
           key={i}
           ref={(el) => {
