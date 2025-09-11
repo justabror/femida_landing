@@ -1,12 +1,12 @@
 "use client";
 
 import { Box, Container, Flex, Text } from "@mantine/core";
+import { Transition } from "@mantine/core";
+import { useInterval } from "@mantine/hooks";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 import { useTranslations } from "next-intl";
-
-import gsap from "gsap";
 
 import { BtnBasic } from "@/shared/ui";
 
@@ -46,56 +46,82 @@ function useIsMobile(breakpoint = 500) {
   return isMobile;
 }
 
-export const HeroHeader = () => {
-  const t = useTranslations();
+interface Props {
+  imagesDesktop: string[];
+  imagesMobile: string[];
+  isMobile: boolean;
+}
 
-  const [bgIndex, setBgIndex] = useState(0);
-  const bgRefs = useRef<HTMLDivElement[]>([]);
-  const isMobile = useIsMobile();
-
+export function BackgroundSlideshow({
+  imagesDesktop,
+  imagesMobile,
+  isMobile,
+}: Props) {
   const images = isMobile ? imagesMobile : imagesDesktop;
+  const [bgIndex, setBgIndex] = useState(0);
+  const [prevIndex, setPrevIndex] = useState<number | null>(null);
+
+  const duration = 1000;
+  const delay = 7000;
+
+  const interval = useInterval(() => {
+    setPrevIndex(bgIndex);
+    setBgIndex((prev) => (prev + 1) % images.length);
+  }, delay);
 
   useEffect(() => {
-    const bgInterval = setInterval(
-      () => {
-        const current = bgIndex % images.length;
-        const next = (bgIndex + 1) % images.length;
+    interval.start();
+    return interval.stop;
+  }, [isMobile, images.length]);
 
-        const currentEl = bgRefs.current[current];
-        const nextEl = bgRefs.current[next];
+  return (
+    <div>
+      {images.map((src, i) => {
+        const isCurrent = i === bgIndex;
+        const isPrev = i === prevIndex;
 
-        if (currentEl && nextEl) {
-          gsap.to(currentEl, { opacity: 0, duration: 1 });
-          gsap.set(nextEl, { zIndex: 1 });
-          gsap.fromTo(nextEl, { opacity: 0 }, { opacity: 1, duration: 1 });
-          setBgIndex(next);
-        }
-      },
-      isMobile ? 5000 : 10000,
-    );
-
-    return () => clearInterval(bgInterval);
-  }, [bgIndex, isMobile, images]);
+        return (
+          <Transition
+            key={i}
+            mounted={isCurrent || isPrev}
+            transition="fade"
+            duration={duration}
+            timingFunction="ease-in-out"
+          >
+            {(styles) => (
+              <Box
+                className={s.heroBg}
+                style={{
+                  backgroundImage: `linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.5)), url(${src})`,
+                  position: "absolute",
+                  inset: 0,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  ...styles,
+                  zIndex: isCurrent ? 2 : 1,
+                }}
+              />
+            )}
+          </Transition>
+        );
+      })}
+    </div>
+  );
+}
+export const HeroHeader = () => {
+  const t = useTranslations();
+  const isMobile = useIsMobile();
 
   return (
     <Box
       className={s.heroWrapper}
       mih={{ base: "70vh", md: "100vh" }}
     >
-      {images.map((img, i) => (
-        <Box
-          key={i}
-          ref={(el) => {
-            if (el) bgRefs.current[i] = el;
-          }}
-          className={s.heroBg}
-          style={{
-            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.05),rgba(0, 0, 0, 0.5)), url(${img})`,
-            opacity: i === 0 ? 1 : 0,
-            zIndex: i === 0 ? 1 : 0,
-          }}
-        />
-      ))}
+      <BackgroundSlideshow
+        imagesDesktop={imagesDesktop}
+        imagesMobile={imagesMobile}
+        isMobile={isMobile}
+      />
       <Container
         size="xl"
         className={s.heroTextContainer}
