@@ -4,8 +4,8 @@ import { Metadata } from "next";
 import { useTranslations } from "next-intl";
 import { getLocale, getTranslations } from "next-intl/server";
 
-import ImgOne from "public/assets/split-section/1.png";
-import ImgTwo from "public/assets/split-section/2.png";
+import ImgTwo from "public/assets/split-section/1.png";
+import ImgOne from "public/assets/split-section/3.webp";
 
 import s from "@/pages/about/style.module.scss";
 import { Tree } from "@/shared/assets/tree";
