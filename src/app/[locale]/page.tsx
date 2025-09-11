@@ -13,7 +13,7 @@ import {
   GuidePrinciples,
   Navbar,
   HeroHeader,
-  ShowServices,
+  // ShowServices,
   SplitterBanner,
   TeamBanner,
   TrustSection,
@@ -27,7 +27,7 @@ const MainPage = () => {
     >
       <Navbar />
       <HeroHeader />
-      <ShowServices />
+      {/* <ShowServices /> */}
       <CompanyStatistics />
       <SplitterBanner />
       <TrustSection />
